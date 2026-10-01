@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swing Cool Kidz · Lindy Hop &amp; Solo Jazz in Đà Nẵng</title>
+<meta name="description" content="Swing Cool Kidz — Đà Nẵng's swing dance community. Social dance twice a month at Blends and twice a month at Hyatt Terrasse with live jazz. Lindy Hop & Vernacular Solo Jazz." />
+
+<!-- Social preview -->
+<meta property="og:title" content="Swing Cool Kidz · Đà Nẵng" />
+<meta property="og:description" content="Social dance twice a month at Blends & twice a month at Hyatt Terrasse with live jazz." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#FFF6E9;
+    --paper:#FFFCF6;
+    --ink:#1B2A41;
+    --ink-2:#3B4A63;
+    --gold:#E8A33D;
+    --gold-deep:#C97F1B;
+    --coral:#E4572E;
+    --teal:#157A6E;
+    --teal-deep:#0E574F;
+    --line:#1B2A4122;
+    --shadow:0 16px 40px -18px rgba(27,42,65,.45);
+    --radius:20px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal-deep);text-underline-offset:3px}
+  h1,h2,h3,.display{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:.5px}
+  .wrap{width:min(1080px,92vw);margin-inline:auto}
+  section{padding:clamp(48px,7vw,88px) 0}
+
+  /* faux art-deco dotted texture */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+    background-image:radial-gradient(var(--line) 1px,transparent 1px);
+    background-size:22px 22px;
+  }
+  main,header,footer{position:relative;z-index:1}
+
+  /* ---------- HEADER ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(255,246,233,.82);
+    border-bottom:2px solid var(--ink);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .brand .badge{
+    width:42px;height:42px;flex:0 0 42px;border-radius:50%;
+    background:var(--coral);color:#fff;display:grid;place-items:center;
+    font-family:"Alfa Slab One";font-size:20px;border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .brand b{font-family:"Alfa Slab One";font-weight:400;font-size:19px;letter-spacing:.5px}
+  .brand small{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  .nav{display:flex;gap:6px;flex-wrap:wrap}
+  .nav a{
+    text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;
+    padding:8px 12px;border-radius:999px;
+  }
+  .nav a:hover{background:var(--gold)}
+  @media(max-width:720px){.nav{display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:clamp(40px,7vw,90px) 0 clamp(28px,5vw,56px)}
+  .kicker{
+    display:inline-block;font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;
+    background:var(--teal);color:#fff;padding:7px 16px;border-radius:999px;border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(44px,10vw,104px);margin:.1em 0 .15em}
+  .hero h1 .swing{color:var(--coral)}
+  .hero h1 .cool{color:var(--gold-deep)}
+  .hero h1 .kidz{color:var(--teal)}
+  .lede{font-size:clamp(17px,2.4vw,22px);max-width:46ch;color:var(--ink-2);font-weight:300}
+  .lede b{font-weight:600;color:var(--ink)}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:15px;
+    padding:13px 22px;border-radius:999px;border:2px solid var(--ink);cursor:pointer;
+    transition:transform .12s ease,box-shadow .12s ease;
+  }
+  .btn:hover{transform:translate(-2px,-2px)}
+  .btn.primary{background:var(--teal);color:#fff;box-shadow:4px 4px 0 var(--ink)}
+  .btn.primary:hover{box-shadow:6px 6px 0 var(--ink)}
+  .btn.wa{background:#25D366;color:#08321d;box-shadow:4px 4px 0 var(--ink)}
+  .btn.wa:hover{box-shadow:6px 6px 0 var(--ink)}
+  .btn.ghost{background:var(--paper);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+  .btn.ghost:hover{box-shadow:6px 6px 0 var(--ink)}
+
+  /* dance marquee */
+  .marquee{
+    border-block:2px solid var(--ink);background:var(--gold);
+    overflow:hidden;white-space:nowrap;margin-top:44px;
+  }
+  .marquee span{
+    display:inline-block;padding:12px 0;font-family:"Alfa Slab One";font-size:clamp(16px,2.5vw,26px);
+    animation:scroll 26s linear infinite;color:var(--ink);
+  }
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- SECTION HEADINGS ---------- */
+  .sec-head{margin-bottom:30px}
+  .sec-head h2{font-size:clamp(30px,5vw,52px);margin:0}
+  .sec-head p{margin:.4em 0 0;color:var(--ink-2);font-weight:300;font-size:18px}
+
+  /* ---------- NEXT UP BANNER ---------- */
+  #nextUp{margin-bottom:34px}
+  .next-card{
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    background:var(--ink);color:var(--cream);border-radius:var(--radius);
+    padding:20px 24px;border:2px solid var(--ink);box-shadow:var(--shadow);
+  }
+  .next-card .when{font-family:"Alfa Slab One";font-size:clamp(22px,4vw,34px);color:var(--gold);line-height:1.1}
+  .next-card .what{font-weight:600;font-size:17px}
+  .next-card .tag{margin-left:auto}
+
+  /* ---------- CALENDAR ---------- */
+  .cal-wrap{
+    background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .cal-top{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:16px 20px;border-bottom:2px solid var(--ink);background:var(--teal);color:#fff;
+  }
+  .cal-top .m{font-family:"Alfa Slab One";font-size:clamp(20px,3vw,28px)}
+  .cal-nav{display:flex;gap:8px}
+  .cal-nav button{
+    width:40px;height:40px;border-radius:50%;border:2px solid var(--cream);background:transparent;color:#fff;
+    font-size:18px;cursor:pointer;display:grid;place-items:center;transition:background .15s
+  }
+  .cal-nav button:hover{background:rgba(255,255,255,.2)}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;padding:14px 20px 0;font-size:14px;font-weight:600}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;border:1.5px solid var(--ink);vertical-align:middle}
+  .dot-blends{background:var(--gold)}
+  .dot-hyatt{background:var(--teal)}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;padding:16px 20px 24px}
+  .dow{text-align:center;font-weight:800;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);padding:4px 0}
+  .day{
+    position:relative;aspect-ratio:1/1;border-radius:12px;border:1.5px solid transparent;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    font-weight:600;background:#fff;border-color:var(--line);
+  }
+  .day .n{font-size:clamp(13px,2vw,17px)}
+  .day.mut{opacity:.32}
+  .day.has{cursor:pointer;color:#fff;border-color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .day.blends{background:var(--gold);color:#3a2600}
+  .day.hyatt{background:var(--teal)}
+  .day .lbl{font-size:9px;letter-spacing:.5px;text-transform:uppercase;font-weight:800;opacity:.95}
+  .day.today{outline:3px solid var(--coral);outline-offset:2px}
+  .day.has:hover{transform:translate(-1px,-1px)}
+  .cal-foot{padding:0 20px 22px;font-size:14px;color:var(--ink-2);font-weight:300}
+  .cal-foot b{font-weight:600;color:var(--ink)}
+  @media(max-width:520px){.day .lbl{display:none}}
+
+  /* ---------- SCHEDULE CARDS ---------- */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:800px){.cards{grid-template-columns:1fr}}
+  .card{
+    background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);
+    padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;inset:0 0 auto 0;height:8px}
+  .card.blends::before{background:var(--gold)}
+  .card.hyatt::before{background:var(--teal)}
+  .card h3{font-size:27px;margin:.35em 0 .1em}
+  .card .venue{font-weight:600;color:var(--ink-2);margin-bottom:14px}
+  .pill{
+    display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;
+    background:var(--ink);color:var(--cream);padding:5px 12px;border-radius:999px;
+  }
+  .facts{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+  .facts li{display:flex;gap:10px;align-items:flex-start;font-weight:400}
+  .facts .ico{flex:0 0 24px;text-align:center}
+  .facts b{font-weight:600}
+
+  /* ---------- GOOD TO KNOW ---------- */
+  .know{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}
+  @media(max-width:800px){.know{grid-template-columns:1fr}}
+  .panel{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+  .panel h3{font-size:22px;margin:0 0 12px}
+  .panel ol{padding-left:20px;margin:0}
+  .panel li{margin-bottom:12px}
+  .map{
+    margin-top:8px;display:inline-block;font-weight:600
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.site{background:var(--ink);color:var(--cream);padding:52px 0 40px;margin-top:20px;border-top:6px solid var(--gold)}
+  footer .big{font-family:"Alfa Slab One";font-size:clamp(28px,5vw,44px);color:var(--gold);margin:0 0 6px}
+  footer a{color:var(--cream)}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
+  .socials{display:flex;gap:12px;flex-wrap:wrap}
+  .socials a{
+    text-decoration:none;border:2px solid var(--cream);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;
+  }
+  .socials a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+  .foot-note{margin-top:26px;font-size:13px;opacity:.7;font-weight:300}
+
+  /* modal */
+  .modal{position:fixed;inset:0;display:none;place-items:center;z-index:100;background:rgba(27,42,65,.55);padding:20px}
+  .modal.on{display:grid}
+  .modal-inner{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);max-width:420px;width:100%;padding:26px;box-shadow:var(--shadow)}
+  .modal-inner h3{margin:0 0 6px;font-size:24px}
+  .modal-inner .pill{margin-bottom:12px}
+  .modal-close{margin-top:18px;width:100%}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <span class="badge">S</span>
+      <span><b>Swing Cool Kidz</b><small>Đà Nẵng · Since 2024</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#calendar">Calendar</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#venues">Venues</a>
+      <a href="#join">Join in</a>
+    </nav>
+    <a class="btn wa" style="padding:9px 16px" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener">Follow us</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <span class="kicker">Lindy Hop · Vernacular Solo Jazz · Đà Nẵng</span>
+    <h1><span class="swing">Swing</span> <span class="cool">Cool</span> <span class="kidz">Kidz</span></h1>
+    <p class="lede">We're Đà Nẵng's <b>swing dance community</b>. Twice a month we throw down at <b>Blends</b> — with a 45-min taster class for brand-new feet — and twice a month we swing to <b>live jazz at Hyatt Terrasse</b>. No partner, no experience, no problem.</p>
+    <div class="cta">
+      <a class="btn primary" href="#calendar">🗓️ See this month</a>
+      <a class="btn ghost" href="#join">💬 Join the community</a>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <span>★ SHARE THE FUN ★ SPREAD THE SWING ♪ ALL WELCOME ♪ NO PARTNER NEEDED ★ COME AS YOU ARE ♪&nbsp;</span><span>★ SHARE THE FUN ★ SPREAD THE SWING ♪ ALL WELCOME ♪ NO PARTNER NEEDED ★ COME AS YOU ARE ♪&nbsp;</span>
+  </div>
+
+  <!-- CALENDAR -->
+  <section id="calendar" class="wrap">
+    <div class="sec-head">
+      <h2>This Month</h2>
+      <p>Every date we're dancing — tap a highlighted day for details.</p>
+    </div>
+
+    <div id="nextUp"></div>
+
+    <div class="cal-wrap">
+      <div class="cal-top">
+        <div class="m" id="calMonthLabel">—</div>
+        <div class="cal-nav">
+          <button id="calPrev" aria-label="Previous month">‹</button>
+          <button id="calNext" aria-label="Next month">›</button>
+        </div>
+      </div>
+      <div class="legend">
+        <span><i class="dot-blends"></i>Blends · Social + Taster</span>
+        <span><i class="dot-hyatt"></i>Hyatt Terrasse · Live Jazz</span>
+      </div>
+      <div class="grid" id="calGrid"></div>
+      <div class="cal-foot">
+        <b>Regular rhythm:</b> Blends on the <b>1st &amp; 3rd Thursday</b> (7–9PM, taster class first) · Hyatt on the <b>2nd &amp; 4th Wednesday</b> (8–10PM, live jazz). <br>
+        <em>Dates can shift around holidays — check WhatsApp for the latest.</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="wrap">
+    <div class="sec-head">
+      <h2>The Lineup</h2>
+      <p>Two homes, one vibe. Here's how the week swings.</p>
+    </div>
+    <div class="cards">
+      <article class="card blends">
+        <span class="pill" style="background:var(--gold-deep)">Thu · 2× / month</span>
+        <h3>Social at Blends</h3>
+        <div class="venue">Blends Social Bar · our Thursday home 🏠</div>
+        <ul class="facts">
+          <li><span class="ico">🕖</span><span><b>7:00–9:00PM</b></span></li>
+          <li><span class="ico">🦶</span><span><b>45-min taster class</b> first — fresh feet very welcome</span></li>
+          <li><span class="ico">🎶</span><span>Social dancing to swing &amp; jazz tunes</span></li>
+          <li><span class="ico">📆</span><span>Usually the <b>1st &amp; 3rd Thursday</b></span></li>
+        </ul>
+      </article>
+
+      <article class="card hyatt">
+        <span class="pill">Wed · 2× / month</span>
+        <h3>Live Jazz at Hyatt</h3>
+        <div class="venue">@Terrasse Bar · Hyatt Regency Đà Nẵng 🎺</div>
+        <ul class="facts">
+          <li><span class="ico">🕗</span><span><b>8:00–10:00PM</b></span></li>
+          <li><span class="ico">🎷</span><span>Live music with the <b>HAT Jazz Band</b></span></li>
+          <li><span class="ico">🪵</span><span>Beautiful <b>wooden floor</b> — made for spinning</span></li>
+          <li><span class="ico">📆</span><span>Usually the <b>2nd &amp; 4th Wednesday</b></span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- VENUES / GOOD TO KNOW -->
+  <section id="venues" class="wrap">
+    <div class="sec-head">
+      <h2>Good to Know</h2>
+      <p>Everything you need before you lace up your dancing shoes.</p>
+    </div>
+    <div class="know">
+      <div class="panel">
+        <h3>🎷 At Hyatt Terrasse</h3>
+        <ol>
+          <li><b>Reserve a table in advance</b> so the venue can arrange a good spot for us. Please vote/tell us by <b>3PM on the Wednesday</b> so we can make the booking.</li>
+          <li><b>No entrance fee</b> at Terrasse — just please be mindful to buy <b>at least a drink or some food</b>.</li>
+          <li>
+            Menus:<br>
+            🥤 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_beverage_menu?fr=sZjhhMDgzODQ5MDU" target="_blank" rel="noopener">Drink menu</a><br>
+            🍟 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_snack_menu?fr=xKAE9_zMzMw" target="_blank" rel="noopener">Snack menu</a>
+          </li>
+          <li>
+            📍 Hyatt Regency Đà Nẵng — Terrasse Bar<br>
+            <a class="map" href="https://maps.app.goo.gl/nhZQV5ik12SCCZPY9" target="_blank" rel="noopener">Open in Google Maps →</a>
+          </li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h3>🦶 At Blends</h3>
+        <ul class="facts">
+          <li><span class="ico">🏠</span><span>Our cozy Thursday home in Đà Nẵng</span></li>
+          <li><span class="ico">🎓</span><span><b>45-min taster class</b> to get you moving</span></li>
+          <li><span class="ico">💃</span><span>Then social dancing till 9PM</span></li>
+          <li><span class="ico">👟</span><span>Comfortable shoes recommended</span></li>
+          <li><span class="ico">🙌</span><span>All levels, all ages, all smiles</span></li>
+        </ul>
+        <p style="margin-top:18px;color:var(--ink-2)">Blends has been generously <b>hosting us</b> and keeps it flexible for our community. Come show some love. 🙏</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section id="join" class="wrap">
+    <div class="sec-head">
+      <h2>Join the Cool Kidz</h2>
+      <p>Never miss a social — follow along and hop into the group.</p>
+    </div>
+    <div class="cta">
+      <a class="btn wa" href="#" id="waLink">💬 Join our WhatsApp group</a>
+      <a class="btn ghost" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener">📸 Instagram @swingcoolkidz</a>
+      <a class="btn ghost" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener">👍 Facebook /swingcoolkidz</a>
+    </div>
+    <p style="margin-top:18px;color:var(--ink-2);font-weight:300">New to swing? Come to a taster class at Blends — it's the easiest way to jump in. 💃🕺</p>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="big">Swing Cool Kidz</p>
+        <div style="opacity:.85;font-weight:300">Lindy Hop &amp; Vernacular Solo Jazz · Đà Nẵng, Vietnam</div>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener">Facebook</a>
+        <a href="#" id="waLink2">WhatsApp</a>
+      </div>
+    </div>
+    <p class="foot-note">See you on the dance floor. 🎶 — and a big thank you to Blends &amp; Hyatt Terrasse for hosting us.</p>
+  </div>
+</footer>
+
+<!-- EVENT MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <span class="pill" id="mPill">Event</span>
+    <h3 id="mTitle">—</h3>
+    <ul class="facts" id="mFacts"></ul>
+    <button class="btn primary modal-close" id="mClose">Got it</button>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   ▼▼▼  EDIT ME: put your real WhatsApp invite link here  ▼▼▼
+   ===================================================================== */
+const WHATSAPP_INVITE = "#"; // e.g. "https://chat.whatsapp.com/XXXXXXXX"
+
+/* ---------------------------------------------------------------------
+   EVENT RULES  — everything on the calendar is generated from these.
+   "nth" = which occurrences of that weekday in the month (1-based).
+   Change these to re-schedule the whole calendar.
+--------------------------------------------------------------------- */
+const EVENTS = {
+  blends: {
+    label: "Blends",
+    title: "Social + Taster Class at Blends",
+    weekday: 4,          // 0=Sun,1=Mon,... 4=Thursday
+    nth: [1, 3],         // 1st & 3rd Thursday
+    time: "7:00–9:00PM (taster class starts 7:00)",
+    facts: [
+      "🦶 45-min taster class for beginners first",
+      "🎶 Social dancing till 9PM",
+      "📍 Blends Social Bar, Đà Nẵng",
+      "🙌 No partner or experience needed"
+    ]
+  },
+  hyatt: {
+    label: "Hyatt",
+    title: "Live Jazz Social at Hyatt Terrasse",
+    weekday: 3,          // Wednesday
+    nth: [2, 4],         // 2nd & 4th Wednesday
+    time: "8:00–10:00PM",
+    facts: [
+      "🎷 Live music with the HAT Jazz Band",
+      "🪵 Wooden floor — perfect for swinging",
+      "📍 Hyatt Regency Đà Nẵng — Terrasse Bar",
+      "📆 Please reserve by 3PM Wed so we can book a good spot",
+      "🍹 No entrance fee — just buy a drink or food"
+    ]
+  }
+};
+
+/* ---------- date helpers ---------- */
+const WEEKDAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+function nthWeekdayOfMonth(year, month, weekday, nth){
+  // month: 0-based
+  const first = new Date(year, month, 1);
+  let day = 1 + ((7 + weekday - first.getDay()) % 7) + (nth - 1) * 7;
+  const d = new Date(year, month, day);
+  return d.getMonth() === month ? d : null;
+}
+function eventsForMonth(year, month){
+  const out = [];
+  for (const [key, def] of Object.entries(EVENTS)){
+    for (const n of def.nth){
+      const d = nthWeekdayOfMonth(year, month, def.weekday, n);
+      if (d) out.push({ date: d, key, def });
+    }
+  }
+  return out.sort((a,b)=>a.date-b.date);
+}
+function ymd(d){
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function longDate(d){
+  return WEEKDAYS[d.getDay()]+", "+MONTHS[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
+}
+
+/* ---------- calendar render ---------- */
+let view = new Date();
+view.setDate(1);
+const today = new Date(); today.setHours(0,0,0,0);
+
+function render(){
+  const y = view.getFullYear(), m = view.getMonth();
+  document.getElementById("calMonthLabel").textContent = MONTHS[m] + " " + y;
+
+  const evs = eventsForMonth(y, m);
+  const byDay = {};
+  evs.forEach(e => byDay[ymd(e.date)] = e);
+
+  const grid = document.getElementById("calGrid");
+  grid.innerHTML = "";
+  ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(dn=>{
+    const el = document.createElement("div");
+    el.className = "dow"; el.textContent = dn; grid.appendChild(el);
+  });
+
+  const firstDow = new Date(y, m, 1).getDay();
+  const daysInMonth = new Date(y, m+1, 0).getDate();
+  const prevDays = new Date(y, m, 0).getDate();
+
+  // leading days
+  for (let i=0;i<firstDow;i++){
+    const el = document.createElement("div");
+    el.className = "day mut";
+    el.innerHTML = '<span class="n">'+(prevDays-firstDow+i+1)+'</span>';
+    grid.appendChild(el);
+  }
+  // month days
+  for (let d=1; d<=daysInMonth; d++){
+    const date = new Date(y, m, d);
+    const key = ymd(date);
+    const ev = byDay[key];
+    const el = document.createElement("div");
+    el.className = "day" + (ev ? " has " + ev.key : "");
+    if (date.getTime() === today.getTime()) el.classList.add("today");
+    el.innerHTML = '<span class="n">'+d+'</span>' +
+      (ev ? '<span class="lbl">'+ev.def.label+'</span>' : '');
+    if (ev){
+      el.title = ev.def.title;
+      el.addEventListener("click", ()=>openModal(ev));
+    }
+    grid.appendChild(el);
+  }
+  // trailing days
+  const total = firstDow + daysInMonth;
+  const trail = (7 - (total % 7)) % 7;
+  for (let i=1;i<=trail;i++){
+    const el = document.createElement("div");
+    el.className = "day mut";
+    el.innerHTML = '<span class="n">'+i+'</span>';
+    grid.appendChild(el);
+  }
+
+  renderNextUp(evs);
+}
+
+function renderNextUp(evs){
+  const box = document.getElementById("nextUp");
+  let next = evs.find(e => e.date >= today);
+  if (!next){
+    // look ahead
+    for (let k=1;k<=3;k++){
+      const d = new Date(view.getFullYear(), view.getMonth()+k, 1);
+      const ahead = eventsForMonth(d.getFullYear(), d.getMonth()).find(e=>e.date>=today);
+      if (ahead){ next = ahead; break; }
+    }
+  }
+  if (!next){ box.innerHTML = ""; return; }
+  const d = next.date; d.setHours(0,0,0,0);
+  const days = Math.round((d - today)/86400000);
+  const when = days===0 ? "TONIGHT!" : days===1 ? "TOMORROW" : WEEKDAYS[d.getDay()]+" · "+MONTHS[d.getMonth()].slice(0,3)+" "+d.getDate();
+  box.innerHTML =
+    '<div class="next-card">' +
+      '<div><div class="when">'+when+'</div>' +
+      '<div class="what">'+next.def.title+' · '+next.def.time+'</div></div>' +
+      '<span class="pill tag">Next up</span>' +
+    '</div>';
+}
+
+/* ---------- modal ---------- */
+function openModal(ev){
+  document.getElementById("mPill").textContent = ev.def.label;
+  document.getElementById("mTitle").textContent = ev.def.title;
+  const ul = document.getElementById("mFacts");
+  ul.innerHTML = "";
+  [ "🕘 "+ev.def.time, "📅 "+longDate(ev.date), ...ev.def.facts ].forEach(f=>{
+    const li = document.createElement("li");
+    li.innerHTML = f;
+    ul.appendChild(li);
+  });
+  document.getElementById("modal").classList.add("on");
+}
+document.getElementById("mClose").addEventListener("click", ()=>document.getElementById("modal").classList.remove("on"));
+document.getElementById("modal").addEventListener("click", e=>{ if (e.target.id==="modal") e.currentTarget.classList.remove("on"); });
+
+/* ---------- nav ---------- */
+document.getElementById("calPrev").addEventListener("click", ()=>{ view.setMonth(view.getMonth()-1); render(); });
+document.getElementById("calNext").addEventListener("click", ()=>{ view.setMonth(view.getMonth()+1); render(); });
+
+/* ---------- whatsapp links ---------- */
+["waLink","waLink2"].forEach(id=>{
+  const el = document.getElementById(id);
+  if (el){
+    if (WHATSAPP_INVITE && WHATSAPP_INVITE !== "#") el.href = WHATSAPP_INVITE;
+    else el.addEventListener("click", e=>{ e.preventDefault(); alert("Add your WhatsApp invite link in the WHATSAPP_INVITE variable."); });
+  }
+});
+
+render();
+</script>
+</body>
+</html>
