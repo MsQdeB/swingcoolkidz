@@ -202,10 +202,8 @@
   .region-tabs button.active{background:var(--ink);color:var(--cream)}
   .dot-saigon{background:var(--blue)}
   .dot-hanoi{background:var(--green)}
-  .dot-event{background:var(--ink)}
   .day.saigon{background:var(--blue);color:#fff}
   .day.hanoi{background:var(--green);color:#fff}
-  .day.event{background:var(--ink);color:var(--cream)}
   .day.multi{background:#fff;color:var(--ink);gap:2px;padding:4px}
   .day .labels{display:flex;flex-wrap:wrap;gap:2px;justify-content:center}
   .day .chip{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.2px;padding:1px 5px;border-radius:6px;color:#fff;line-height:1.5}
@@ -213,7 +211,6 @@
   .chip.hyatt{background:var(--pink)}
   .chip.saigon{background:var(--blue)}
   .chip.hanoi{background:var(--green)}
-  .chip.event{background:var(--ink)}
   @media(max-width:520px){.day .labels{display:none}}
 
   /* ---------- NEIGHBOURS ---------- */
@@ -678,14 +675,14 @@ function legendFor(){
   const items = [];
   if (activeRegions.includes("danang")){ items.push({cls:"blends", label:"Blends · Social + Taster"}); items.push({cls:"hyatt", label:"Hyatt Terrasse · Live Jazz"}); }
   if (activeRegions.includes("saigon")) items.push({cls:"saigon", label:"Saigon Swing Cats · Wed"});
-  if (activeRegions.includes("hanoi")){ items.push({cls:"hanoi", label:"Swing Dancing Hanoi · Wed"}); items.push({cls:"event", label:"Hanoi Lindy Weekend"}); }
+  if (activeRegions.includes("hanoi")) items.push({cls:"hanoi", label:"Swing Dancing Hanoi · Wed"});
   return items.map(l=>'<span><i class="dot-'+l.cls+'"></i>'+l.label+'</span>').join("");
 }
 function footFor(){
   const parts = [];
   if (activeRegions.includes("danang")) parts.push("<b>Đà Nẵng:</b> alternating weeks — <b>Blends</b> Thu 7–9PM (taster class first) &amp; <b>Hyatt</b> Wed 8–10PM.");
   if (activeRegions.includes("saigon")) parts.push("<b>Sài Gòn:</b> Saigon Swing Cats dance every Wednesday.");
-  if (activeRegions.includes("hanoi")) parts.push("<b>Hà Nội:</b> Swing Dancing Hanoi every Wednesday · <b>Hanoi Lindy Weekend 20–22 Nov</b>.");
+  if (activeRegions.includes("hanoi")) parts.push("<b>Hà Nội:</b> Swing Dancing Hanoi dance every Wednesday. (Big events live in the Big Events section!)");
   parts.push("<em>Dates can shift — check the relevant page / WhatsApp.</em>");
   return parts.join("<br>");
 }
@@ -697,18 +694,6 @@ function actionsFor(){
   return html;
 }
 
-/* Hanoi Lindy Weekend 2026 — a neighbours' big event (20–22 Nov) */
-const SPECIALS = [
-  {region:"hanoi", date:new Date(2026,10,20)},
-  {region:"hanoi", date:new Date(2026,10,21)},
-  {region:"hanoi", date:new Date(2026,10,22)}
-];
-const HLW_DEF = {
-  label: "HLW", title: "Hanoi Lindy Weekend 2026", time: "20–22 Nov 2026",
-  location: "Hanoi, Vietnam", page: "https://hanoilindyweekend.com",
-  facts: ["🗓️ 20–22 November 2026", "📍 Hanoi, Vietnam", "🎓 World-class workshops, bands &amp; parties", "🔗 hanoilindyweekend.com", "📸 @hanoi.lindyweekend"]
-};
-
 function eventsForRegion(rk, year, month){
   if (rk === "danang") return eventsForMonth(year, month).map(e=>({ date:e.date, cls:e.key, def:e.def }));
   const out = [];
@@ -717,10 +702,6 @@ function eventsForRegion(rk, year, month){
     const dt = new Date(year, month, d);
     if (dt.getDay() === 3) out.push({ date: dt, cls: rk, def: EVENTS[rk] });
   }
-  SPECIALS.forEach(s=>{
-    if (s.region===rk && s.date.getFullYear()===year && s.date.getMonth()===month)
-      out.push({ date: new Date(s.date), cls: "event", def: HLW_DEF });
-  });
   return out;
 }
 function regionEventsForMonth(year, month){
