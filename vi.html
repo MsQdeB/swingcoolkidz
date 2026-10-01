@@ -63,14 +63,18 @@
     border-bottom:2px solid var(--ink);
   }
   .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex-shrink:0}
   .brand img{width:46px;height:46px;flex:0 0 46px;border-radius:50%;border:2px solid var(--ink);background:#fff}
-  .brand b{font-family:"Alfa Slab One";font-weight:400;font-size:19px;letter-spacing:.5px;display:block}
-  .brand small{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  .brand b{font-family:"Alfa Slab One";font-weight:400;font-size:19px;letter-spacing:.5px;display:block;white-space:nowrap}
+  .brand small{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-2);font-weight:600;white-space:nowrap}
   .nav{display:flex;gap:6px;flex-wrap:wrap}
   .nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px}
   .nav a:hover{background:var(--sun)}
   @media(max-width:760px){.nav{display:none}}
+  .lang-switch{display:inline-flex;flex-shrink:0;border:2px solid var(--ink);border-radius:999px;overflow:hidden;font-weight:800;font-size:13px;line-height:1}
+  .lang-switch a{flex:0 0 58px;width:58px;text-align:center;padding:9px 0;text-decoration:none;color:var(--ink);background:transparent}
+  .lang-switch a:hover{background:var(--sun)}
+  .lang-switch a.active{background:var(--ink);color:var(--cream)}
 
   /* ---------- HERO ---------- */
   .hero{padding:clamp(36px,6vw,80px) 0 clamp(28px,5vw,56px)}
@@ -278,7 +282,7 @@
       <a href="#floor">Nội quy sàn</a>
       <a href="#join">Tham gia</a>
     </nav>
-    <span class="lang-switch" aria-label="Language"><a href="index.html">EN</a><b>VI</b></span>
+    <span class="lang-switch" aria-label="Language"><a href="index.html">EN</a><a href="vi.html" class="active">VI</a></span>
     <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">Tham gia WhatsApp</a>
   </div>
 </header>
