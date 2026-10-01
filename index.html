@@ -179,6 +179,20 @@
   .map{margin-top:8px;display:inline-block;font-weight:600}
   .fee{background:var(--sun);border:2px solid var(--ink);border-radius:12px;padding:10px 14px;font-weight:600;margin-top:14px}
 
+  /* ---------- WATCH ---------- */
+  .playlist-card{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;background:var(--ink);color:var(--cream);border:2px solid var(--ink);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-bottom:24px}
+  .playlist-card h3{color:var(--sun-deep);margin:.35em 0 .25em;font-size:26px}
+  .playlist-card p{margin:0;font-weight:300;opacity:.9;max-width:56ch}
+  .playlist-card .btn{flex:0 0 auto}
+  .watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:800px){.watch-grid{grid-template-columns:1fr}}
+  .watch-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .watch-card h3{font-size:21px;margin:0 0 14px}
+  .watch-card ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  .watch-card a{font-weight:600;text-decoration:none;border-bottom:2px solid var(--sun-deep)}
+  .watch-card a:hover{background:var(--sun)}
+  .watch-card small{display:block;color:var(--ink-2);font-weight:300;margin-top:2px}
+
   footer.site{background:var(--ink);color:var(--cream);padding:52px 0 40px;margin-top:20px;border-top:6px solid var(--pink)}
   footer .big{font-family:"Alfa Slab One";font-size:clamp(28px,5vw,44px);color:var(--sun-deep);margin:0 0 6px}
   footer a{color:var(--cream)}
@@ -208,6 +222,7 @@
       <a href="#calendar">Calendar</a>
       <a href="#schedule">Schedule</a>
       <a href="#venues">Venues &amp; Fees</a>
+      <a href="#watch">Watch</a>
       <a href="#join">Join in</a>
     </nav>
     <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">Join WhatsApp</a>
@@ -335,6 +350,65 @@
     </div>
   </section>
 
+  <!-- WATCH & LEARN -->
+  <section id="watch" class="wrap">
+    <div class="sec-head">
+      <h2>Watch &amp; Learn</h2>
+      <p>Swing has a deep, joyful history. Here's where to fall down the rabbit hole. 🎬</p>
+    </div>
+
+    <!-- ▼▼ EDIT ME: paste your YouTube playlist link in href ▼▼ -->
+    <div class="playlist-card">
+      <div>
+        <span class="pill" style="background:var(--sun-deep);color:var(--ink)">Our playlist</span>
+        <h3>Cool Kidz — Swing Starter Pack</h3>
+        <p>Hand-picked by us: our own socials &amp; routines, plus the classic clips that made us fall in love with swing.</p>
+      </div>
+      <a class="btn primary" href="#" id="playlistBtn" target="_blank" rel="noopener">▶️ Watch our playlist</a>
+    </div>
+
+    <div class="watch-grid">
+      <article class="watch-card">
+        <h3>🕰️ History &amp; Legends</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/results?search_query=The+Spirit+Moves+1987+jazz+dance" target="_blank" rel="noopener">The Spirit Moves (1987)</a><small>Mura Dehn's landmark film of African-American jazz dance.</small></li>
+          <li><a href="https://www.youtube.com/results?search_query=Hellzapoppin+1941+lindy+hop+Whitey%27s" target="_blank" rel="noopener">Hellzapoppin' (1941)</a><small>The Whitey's Lindy Hoppers scene — the most famous airsteps ever filmed.</small></li>
+          <li><a href="https://www.youtube.com/results?search_query=Al+Minns+Leon+James" target="_blank" rel="noopener">Al Minns &amp; Leon James</a><small>The Savoy's most famous duo, captured from the '40s to the '60s.</small></li>
+          <li><a href="https://www.youtube.com/results?search_query=Frankie+Manning+lindy+hop+ambassador" target="_blank" rel="noopener">Frankie Manning</a><small>The "Ambassador of Lindy Hop" — interviews, clips &amp; inspiration.</small></li>
+          <li><a href="https://www.youtube.com/results?search_query=Norma+Miller+queen+of+swing" target="_blank" rel="noopener">Norma Miller — Queen of Swing</a><small>From Savoy Ballroom dancer to beloved legend &amp; storyteller.</small></li>
+          <li><a href="https://www.youtube.com/results?search_query=Savoy+Ballroom+history+harlem" target="_blank" rel="noopener">The Savoy Ballroom</a><small>The Harlem ballroom where Lindy Hop was born.</small></li>
+        </ul>
+      </article>
+
+      <article class="watch-card">
+        <h3>🎓 Learn the Steps</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@iLindy" target="_blank" rel="noopener">iLindy</a><small>Tutorials, moves and swing history.</small></li>
+          <li><a href="https://www.youtube.com/@LauraGlaess" target="_blank" rel="noopener">Laura Glaess</a><small>Vernacular solo jazz deep-dives and drills.</small></li>
+          <li><a href="https://www.youtube.com/@kevinandjo" target="_blank" rel="noopener">kevin and jo</a><small>Modern Lindy Hop tutorials, clear and fun.</small></li>
+          <li><a href="https://www.youtube.com/@SwingPlanet" target="_blank" rel="noopener">Swing Planet</a><small>Classes, combos and good vibes.</small></li>
+        </ul>
+      </article>
+
+      <article class="watch-card">
+        <h3>🏆 Inspiration &amp; Competitions</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@ILHC" target="_blank" rel="noopener">ILHC</a><small>International Lindy Hop Championships — world-class finals.</small></li>
+          <li><a href="https://www.youtube.com/@CampHollywood" target="_blank" rel="noopener">Camp Hollywood</a><small>Iconic US swing event footage.</small></li>
+          <li><a href="https://www.youtube.com/@HerrangDanceCamp" target="_blank" rel="noopener">Herräng Dance Camp</a><small>The world's biggest swing camp, in Sweden.</small></li>
+        </ul>
+      </article>
+
+      <article class="watch-card">
+        <h3>🎷 The Music</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@GordonWebster" target="_blank" rel="noopener">Gordon Webster</a><small>The swing band you'll hear at every social.</small></li>
+          <li><a href="https://www.youtube.com/@HotSugarBand" target="_blank" rel="noopener">Hot Sugar Band</a><small>Modern swing band with serious energy.</small></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
   <!-- JOIN -->
   <section id="join" class="wrap">
     <div class="sec-head">
@@ -389,6 +463,10 @@
    WHATSAPP INVITE (already set)
    ===================================================================== */
 const WHATSAPP_INVITE = "https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t";
+
+/* ▼ EDIT ME: paste our YouTube playlist link here, e.g.
+   "https://www.youtube.com/playlist?list=PLxxxxxxxx" */
+const PLAYLIST_URL = "";
 
 /* ---------------------------------------------------------------------
    EVENT DETAILS — the DATES are generated by the alternating-week rule
@@ -575,6 +653,14 @@ document.getElementById("modal").addEventListener("click", e=>{ if (e.target.id=
 
 document.getElementById("calPrev").addEventListener("click", ()=>{ view.setMonth(view.getMonth()-1); render(); });
 document.getElementById("calNext").addEventListener("click", ()=>{ view.setMonth(view.getMonth()+1); render(); });
+
+/* playlist button */
+(function(){
+  const el = document.getElementById("playlistBtn");
+  if (!el) return;
+  if (PLAYLIST_URL){ el.href = PLAYLIST_URL; }
+  else { el.addEventListener("click", e=>{ e.preventDefault(); alert("Paste our YouTube playlist link into the PLAYLIST_URL variable to activate this button."); }); }
+})();
 
 render();
 </script>
