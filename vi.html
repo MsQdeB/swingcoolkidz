@@ -280,6 +280,15 @@
   .ico-btn.sm{width:42px;height:42px}
   .ico-btn.sm svg{width:20px;height:20px}
   .subhead{font-family:"Alfa Slab One";font-size:19px;margin:34px 0 16px}
+  .hero-next{display:inline-flex;align-items:center;gap:8px;background:var(--sun);border:2px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;text-decoration:none;color:var(--ink);box-shadow:3px 3px 0 var(--ink);margin-top:18px}
+  .foot-cta{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+  @media(max-width:600px){.foot-cta{align-items:flex-start}}
+  .floor-acc{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:0 22px}
+  .floor-acc>summary{list-style:none;cursor:pointer;padding:18px 0;font-family:"Alfa Slab One";font-size:18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .floor-acc>summary::-webkit-details-marker{display:none}
+  .floor-acc>summary::after{content:"＋"}
+  .floor-acc[open]>summary::after{content:"－"}
+  .floor-acc .floor-grid{padding-bottom:22px}
   .foot-note{margin-top:26px;font-size:13px;opacity:.7;font-weight:300}
 
   .modal{position:fixed;inset:0;display:none;place-items:center;z-index:100;background:rgba(23,23,23,.55);padding:20px}
@@ -300,10 +309,10 @@
     </a>
     <nav class="nav">
       <a href="#calendar">Lịch</a>
-      <a href="#venues">Địa điểm &amp; Phí</a>
-      <a href="#watch">Xem &amp; Học</a>
+      <a href="#venues">Địa điểm</a>
+      <a href="#watch">Xem</a>
       <a href="#community">Cộng đồng</a>
-      <a href="#floor">Nội quy sàn</a>
+      <a href="#floor">Nội quy</a>
       <a href="#join">Tham gia</a>
     </nav>
     <span class="lang-switch" aria-label="Language"><a href="index.html">EN</a><a href="vi.html" class="active">VI</a></span>
@@ -320,6 +329,7 @@
         <span class="kicker">Lindy Hop · Vernacular Solo Jazz · Balboa · Blues · Shag</span>
         <h1><span class="swing">Swing</span> <span class="cool">Cool</span> <span class="kidz">Kidz</span></h1>
         <p class="lede">Tụi mình là cộng đồng swing dance của <b>Đà Nẵng &amp; Hội An</b>. Mỗi tháng hai lần swing out hết mình ở <b>Blends</b> — kèm lớp taster 45 phút cho người mới — và hai lần swing out theo <b>nhạc jazz sống tại Hyatt Terrasse</b>. Không cần bạn nhảy, không cần kinh nghiệm, cứ đến là vui!</p>
+        <a class="hero-next" id="heroNext" href="#calendar" style="display:none"></a>
         <div class="cta">
           <a class="btn primary" href="#calendar">🗓️ Xem tháng này</a>
           <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Tham gia nhóm</a>
@@ -513,11 +523,13 @@
   <!-- HAPPY FLOOR -->
   <section id="floor" class="wrap">
     <div class="sec-head">
-      <h2>Sàn nhảy hạnh phúc 💛</h2>
+      <h2>Sàn nhảy tử tế 💛</h2>
       <p>Những điều nhỏ giữ sàn nhảy của tụi mình vui, tử tế và an toàn cho tất cả — lấy cảm hứng từ hàng xóm Hà Nội &amp; Sài Gòn.</p>
     </div>
     <div class="floor-intro">Ở buổi social của Swing Cool Kidz, ai cũng nên thấy được chào đón và an toàn. Những hướng dẫn đơn giản này giúp tụi mình cùng chia sẻ sàn nhảy thật nhẹ nhàng — đọc qua và giúp giữ năng lượng tích cực nha!</div>
-    <div class="floor-grid">
+    <details class="floor-acc">
+      <summary>📜 Nội quy Sàn nhảy tử tế — 12 điều <span aria-hidden="true"></span></summary>
+      <div class="floor-grid">
       <article class="floor-card"><h3>🤝 Cứ mời nhau</h3><p>Ai cũng có thể mời ai đó nhảy — không cần bạn nhảy sẵn. Một nụ cười và câu “Bạn nhảy với mình nha?” là đủ. Nói “thôi cảm ơn” hoàn toàn ổn; không cần giải thích, cũng không có gì phải ngại.</p></article>
       <article class="floor-card"><h3>🪄 Hỏi trước các động tác “đặc biệt”</h3><p>Muốn dip, động tác ôm sát, hay mạo hiểm một chút? Hỏi trước — mỗi lần. Sự đồng thuận là câu chuyện xuyên suốt, không phải một lần, nên hãy để ý cả trong lúc nhảy.</p></article>
       <article class="floor-card"><h3>🧭 Nhường khoảng trống</h3><p>Ai đang di chuyển về phía sau thì được ưu tiên. Khi sàn đông, giữ động tác nhỏ gọn và để mắt tới những người xung quanh.</p></article>
@@ -530,40 +542,28 @@
       <article class="floor-card"><h3>📸 Chụp ảnh khi được đồng ý</h3><p>Hỏi trước khi quay hay chụp ảnh người khác, và tôn trọng ai không muốn lên hình.</p></article>
       <article class="floor-card"><h3>🏠 Yêu không gian</h3><p>Gọi đồ uống hoặc đồ ăn, dọn dẹp sau khi dùng, và báo cho tụi mình nếu có nước đổ (trơn lắm!). Hãy tử tế với nhân viên quán — họ tạo nên ngôi nhà của tụi mình.</p></article>
       <article class="floor-card"><h3>🚨 Một không gian an toàn</h3><p>Mọi hành vi quấy rối đều không được chào đón. Nếu có gì khiến bạn khó chịu — cho bạn hoặc cho người khác — hãy nói với ban tổ chức. Tụi mình bảo vệ nhau.</p></article>
-    </div>
-    <p style="margin-top:22px;color:var(--ink-2);font-weight:300">Có câu hỏi hay góp ý? Ghé nói với tụi mình, hoặc nhắn qua WhatsApp / Instagram / Facebook. Giữ sàn nhảy Đà Nẵng ngập tràn tử tế nha. 💃🕺</p>
-  </section>
-
-  <!-- JOIN -->
-  <section id="join" class="wrap">
-    <div class="sec-head">
-      <h2>Tham gia Cool Kidz</h2>
-      <p>Thêm lịch của tụi mình để không bỏ lỡ buổi social nào, và vào nhóm nha.</p>
-    </div>
-    <div class="cta">
-      <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Tham gia nhóm WhatsApp</a>
-      <a class="ico-btn" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram @swingcoolkidz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-      <a class="ico-btn" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook /swingcoolkidz"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a>
-    </div>
-    <p style="margin-top:18px;color:var(--ink-2);font-weight:300">Bạn hoàn toàn mới? Ghé lớp taster ở Blends — cách dễ nhất để bắt đầu. 💃🕺</p>
+      </div>
+    </details>
   </section>
 
 </main>
 
-<footer class="site">
+<footer class="site" id="join">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <p class="big">Swing Cool Kidz</p>
+        <p class="big">Tham gia Cool Kidz</p>
         <div style="opacity:.85;font-weight:300">Lindy Hop · Vernacular Solo Jazz · Balboa · Blues · Shag · Đà Nẵng — Hội An</div>
       </div>
-      <div class="socials">
-        <a class="ico-btn" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-        <a class="ico-btn" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a>
-        <a class="ico-btn" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.3-.74.94-.9 1.13-.17.19-.33.21-.63.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.14-.13.3-.33.45-.5.15-.17.2-.29.3-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.54-.88-2.1-.23-.55-.47-.48-.64-.49l-.54-.01c-.19 0-.5.07-.76.36-.26.3-.99.97-.99 2.36s1.01 2.74 1.15 2.93c.14.19 1.99 3.04 4.82 4.26.67.29 1.2.46 1.61.59.68.22 1.29.19 1.78.11.54-.08 1.66-.68 1.9-1.34.24-.66.24-1.22.17-1.34-.07-.12-.26-.19-.55-.34z"/><path d="M12 2a10 10 0 0 0-8.6 15.05L2 22l5.1-1.33A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.16 15.26l-.3-.18-3.02.79.8-2.95-.2-.31A8.2 8.2 0 0 1 12 3.8z"/></svg></a>
+      <div class="foot-cta">
+        <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Tham gia nhóm WhatsApp</a>
+        <div class="socials">
+          <a class="ico-btn" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ico-btn" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a>
+        </div>
       </div>
     </div>
-    <p class="foot-note">Hẹn gặp trên sàn nhảy. 🎶 — và cảm ơn Blends &amp; Hyatt Terrasse đã yêu thương Cool Kidz và giúp phát triển cộng đồng nhảy Swing.</p>
+    <p class="foot-note">Có câu hỏi hay góp ý? Nhắn tụi mình qua WhatsApp / Instagram / Facebook — hoặc ghé chào một buổi social. 💃🕺<br>Hẹn gặp trên sàn nhảy. 🎶 — và cảm ơn Blends &amp; Hyatt Terrasse đã yêu thương Cool Kidz và giúp phát triển cộng đồng nhảy Swing.</p>
   </div>
 </footer>
 
@@ -665,6 +665,7 @@ const EVENTS = {
 
 /* ---------- date helpers ---------- */
 const WEEKDAYS = ["Chủ nhật","Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7"];
+const SHORTDAYS = ["CN","T2","T3","T4","T5","T6","T7"];
 const MONTHS = ["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"];
 const SITE_URL = "https://swingcoolkidz.netlify.app";
 
@@ -723,13 +724,8 @@ function footFor(){
   return parts.join("<br>");
 }
 function actionsFor(){
-  // Chỉ hiện link nhanh cho các thành phố bạn; Đà Nẵng dùng "Thêm vào Google Calendar" ở mỗi ngày.
-  const ig = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>';
-  const fb = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg>';
-  let items = [];
-  if (activeRegions.includes("saigon")) items.push('<a class="ico-btn sm" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener" aria-label="Facebook" title="Saigon Swing Cats">'+fb+'</a><a class="ico-btn sm" href="https://www.instagram.com/saigonswingcats" target="_blank" rel="noopener" aria-label="Instagram" title="Saigon Swing Cats">'+ig+'</a>');
-  if (activeRegions.includes("hanoi")) items.push('<a class="ico-btn sm" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener" aria-label="Facebook" title="Swing Dancing Hanoi">'+fb+'</a><a class="ico-btn sm" href="https://www.instagram.com/hanoiswingdance" target="_blank" rel="noopener" aria-label="Instagram" title="Swing Dancing Hanoi">'+ig+'</a>');
-  return items.length ? '<div class="ico-row">'+items.join("")+'</div>' : "";
+  // Social của hàng xóm nằm ở mục Cộng đồng; giữ lịch gọn gàng.
+  return "";
 }
 
 function eventsForRegion(rk, year, month){
@@ -828,13 +824,24 @@ function render(){
 
 function renderNextUp(evs){
   const box = document.getElementById("nextUp");
-  let next = evs.find(e => e.date >= today);
-  if (!next){
-    for (let k=1;k<=4 && !next;k++){
-      const d = new Date(view.getFullYear(), view.getMonth()+k, 1);
-      next = regionEventsForMonth(d.getFullYear(), d.getMonth()).find(e=>e.date>=today);
-    }
+  if (activeRegions.length > 1){
+    box.innerHTML = '<div class="next-card">' +
+      '<div><div class="when">🇻🇳 Swing khắp Việt Nam</div>' +
+      '<div class="what">Đang lên kế hoạch đi chơi? Lịch bên dưới là timeline dự kiến của Đà Nẵng · Sài Gòn · Hà Nội 🎒</div></div>' +
+    '</div>';
+    return;
   }
+  const findNext = (fn) => {
+    for (let k=0;k<6;k++){
+      const d = new Date(view.getFullYear(), view.getMonth()+k, 1);
+      const found = fn(d.getFullYear(), d.getMonth()).find(e=>e.date>=today);
+      if (found) return found;
+    }
+    return null;
+  };
+  // Ưu tiên buổi tới của Đà Nẵng khi được chọn; nếu không, lấy buổi gần nhất trong các thành phố đã chọn.
+  let next = activeRegions.includes("danang") ? findNext(eventsForMonth) : findNext(regionEventsForMonth);
+  if (!next) next = findNext(regionEventsForMonth);
   if (!next){ box.innerHTML = ""; return; }
   const d = new Date(next.date); d.setHours(0,0,0,0);
   const days = Math.round((d - today)/86400000);
@@ -919,7 +926,27 @@ syncTabs();
   else { el.addEventListener("click", e=>{ e.preventDefault(); alert("Dán link playlist YouTube vào biến PLAYLIST_URL để kích hoạt nút này."); }); }
 })();
 
+function nextDanangEvent(){
+  let d = new Date(today);
+  for (let k=0;k<6;k++){
+    const yy=d.getFullYear(), mm=d.getMonth();
+    const found = eventsForMonth(yy,mm).find(e=>e.date>=today);
+    if (found) return found;
+    d = new Date(yy, mm+1, 1);
+  }
+  return null;
+}
+function renderHeroNext(){
+  const el = document.getElementById("heroNext"); if(!el) return;
+  const ev = nextDanangEvent(); if(!ev) return;
+  const dt = new Date(ev.date); dt.setHours(0,0,0,0);
+  const dd = Math.round((dt - today)/86400000);
+  const when = dd===0 ? "Tối nay" : dd===1 ? "Ngày mai" : SHORTDAYS[dt.getDay()]+" "+dt.getDate()+" "+MONTHS[dt.getMonth()];
+  el.textContent = "🗓️ Buổi tới: "+when+" · "+ev.def.label;
+  el.style.display = "";
+}
 render();
+renderHeroNext();
 </script>
 </body>
 </html>

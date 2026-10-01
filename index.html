@@ -280,6 +280,15 @@
   .ico-btn.sm{width:42px;height:42px}
   .ico-btn.sm svg{width:20px;height:20px}
   .subhead{font-family:"Alfa Slab One";font-size:19px;margin:34px 0 16px}
+  .hero-next{display:inline-flex;align-items:center;gap:8px;background:var(--sun);border:2px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;text-decoration:none;color:var(--ink);box-shadow:3px 3px 0 var(--ink);margin-top:18px}
+  .foot-cta{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+  @media(max-width:600px){.foot-cta{align-items:flex-start}}
+  .floor-acc{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:0 22px}
+  .floor-acc>summary{list-style:none;cursor:pointer;padding:18px 0;font-family:"Alfa Slab One";font-size:18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .floor-acc>summary::-webkit-details-marker{display:none}
+  .floor-acc>summary::after{content:"＋"}
+  .floor-acc[open]>summary::after{content:"－"}
+  .floor-acc .floor-grid{padding-bottom:22px}
   .foot-note{margin-top:26px;font-size:13px;opacity:.7;font-weight:300}
 
   .modal{position:fixed;inset:0;display:none;place-items:center;z-index:100;background:rgba(23,23,23,.55);padding:20px}
@@ -300,11 +309,11 @@
     </a>
     <nav class="nav">
       <a href="#calendar">Calendar</a>
-      <a href="#venues">Venues &amp; Fees</a>
+      <a href="#venues">Venues</a>
       <a href="#watch">Watch</a>
       <a href="#community">Community</a>
-      <a href="#floor">Floor Rules</a>
-      <a href="#join">Join in</a>
+      <a href="#floor">Rules</a>
+      <a href="#join">Join</a>
     </nav>
     <span class="lang-switch" aria-label="Language"><a href="index.html" class="active">EN</a><a href="vi.html">VI</a></span>
     <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">Join WhatsApp</a>
@@ -320,6 +329,7 @@
         <span class="kicker">Lindy Hop · Vernacular Solo Jazz · Balboa · Blues · Shag</span>
         <h1><span class="swing">Swing</span> <span class="cool">Cool</span> <span class="kidz">Kidz</span></h1>
         <p class="lede">We're the swing dance community of <b>Đà Nẵng &amp; Hội An</b>. Twice a month we throw down at <b>Blends</b> — with a 45-min taster class for brand-new feet — and twice a month we swing to <b>live jazz at Hyatt Terrasse</b>. No partner, no experience, no problem.</p>
+        <a class="hero-next" id="heroNext" href="#calendar" style="display:none"></a>
         <div class="cta">
           <a class="btn primary" href="#calendar">🗓️ See this month</a>
           <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Join the group</a>
@@ -517,7 +527,9 @@
       <p>Little things that keep our dance floor fun, kind and safe for everyone — inspired by our neighbours in Hà Nội &amp; Sài Gòn.</p>
     </div>
     <div class="floor-intro">At a Swing Cool Kidz social, everyone should feel welcome and safe. These simple guidelines help us share the floor with care — please read them and help us keep the good vibes going!</div>
-    <div class="floor-grid">
+    <details class="floor-acc">
+      <summary>📜 The Happy Floor — 12 guidelines <span aria-hidden="true"></span></summary>
+      <div class="floor-grid">
       <article class="floor-card"><h3>🤝 Just ask</h3><p>Anyone can ask anyone to dance — no partner needed. A smile and a simple “Would you like to dance?” is all it takes. A “no thanks” is completely fine; no explanation needed, and no hard feelings.</p></article>
       <article class="floor-card"><h3>🪄 Ask before the extras</h3><p>Want to dip, do a close move, or something a little adventurous? Ask first — every time. Consent is an ongoing conversation, not a one-off, so check in during the dance too.</p></article>
       <article class="floor-card"><h3>🧭 Give space</h3><p>Whoever is travelling backwards has right of way. Keep your moves small when the floor is busy, and keep an eye on the dancers around you.</p></article>
@@ -530,40 +542,28 @@
       <article class="floor-card"><h3>📸 Photos with consent</h3><p>Ask before filming or photographing people, and be mindful of anyone who'd rather stay off camera.</p></article>
       <article class="floor-card"><h3>🏠 Love the space</h3><p>Buy a drink or food, tidy up after yourself, and tell us about spills (slippery!). Be kind to the venue staff — they make our home possible.</p></article>
       <article class="floor-card"><h3>🚨 A safe space</h3><p>Harassment of any kind isn't welcome here. If anything feels uncomfortable — for you or for someone else — tell an organiser. We look after each other.</p></article>
-    </div>
-    <p style="margin-top:22px;color:var(--ink-2);font-weight:300">Questions or feedback? Come talk to us, or message us on WhatsApp / Instagram / Facebook. Let's keep Đà Nẵng's floor swinging with kindness. 💃🕺</p>
-  </section>
-
-  <!-- JOIN -->
-  <section id="join" class="wrap">
-    <div class="sec-head">
-      <h2>Join the Cool Kidz</h2>
-      <p>Add us to your calendar so you never miss a social, and hop into the group.</p>
-    </div>
-    <div class="cta">
-      <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Join our WhatsApp group</a>
-      <a class="ico-btn" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram @swingcoolkidz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-      <a class="ico-btn" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook /swingcoolkidz"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a>
-    </div>
-    <p style="margin-top:18px;color:var(--ink-2);font-weight:300">New to swing? Come to a taster class at Blends — it's the easiest way to jump in. 💃🕺</p>
+      </div>
+    </details>
   </section>
 
 </main>
 
-<footer class="site">
+<footer class="site" id="join">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <p class="big">Swing Cool Kidz</p>
+        <p class="big">Join the Cool Kidz</p>
         <div style="opacity:.85;font-weight:300">Lindy Hop · Vernacular Solo Jazz · Balboa · Blues · Shag · Đà Nẵng — Hội An</div>
       </div>
-      <div class="socials">
-        <a class="ico-btn" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-        <a class="ico-btn" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a>
-        <a class="ico-btn" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.3-.74.94-.9 1.13-.17.19-.33.21-.63.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.14-.13.3-.33.45-.5.15-.17.2-.29.3-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.54-.88-2.1-.23-.55-.47-.48-.64-.49l-.54-.01c-.19 0-.5.07-.76.36-.26.3-.99.97-.99 2.36s1.01 2.74 1.15 2.93c.14.19 1.99 3.04 4.82 4.26.67.29 1.2.46 1.61.59.68.22 1.29.19 1.78.11.54-.08 1.66-.68 1.9-1.34.24-.66.24-1.22.17-1.34-.07-.12-.26-.19-.55-.34z"/><path d="M12 2a10 10 0 0 0-8.6 15.05L2 22l5.1-1.33A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.16 15.26l-.3-.18-3.02.79.8-2.95-.2-.31A8.2 8.2 0 0 1 12 3.8z"/></svg></a>
+      <div class="foot-cta">
+        <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Join our WhatsApp group</a>
+        <div class="socials">
+          <a class="ico-btn" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="ico-btn" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a>
+        </div>
       </div>
     </div>
-    <p class="foot-note">See you on the dance floor. 🎶 — and a big thank you to Blends &amp; Hyatt Terrasse for hosting us.</p>
+    <p class="foot-note">Questions or feedback? Message us on WhatsApp / Instagram / Facebook — or just come say hi at a social. 💃🕺<br>See you on the dance floor. 🎶 — and a big thank you to Blends &amp; Hyatt Terrasse for hosting us.</p>
   </div>
 </footer>
 
@@ -665,6 +665,7 @@ const EVENTS = {
 
 /* ---------- date helpers ---------- */
 const WEEKDAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const SHORTDAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const SITE_URL = "https://swingcoolkidz.netlify.app";
 
@@ -718,18 +719,13 @@ function footFor(){
   const parts = [];
   if (activeRegions.includes("danang")) parts.push("<b>Đà Nẵng:</b> alternating weeks — <b>Blends</b> Thu 7–9PM (taster class first) &amp; <b>Hyatt</b> Wed 8–10PM.");
   if (activeRegions.includes("saigon")) parts.push("<b>Sài Gòn:</b> Saigon Swing Cats dance every Wednesday.");
-  if (activeRegions.includes("hanoi")) parts.push("<b>Hà Nội:</b> Swing Dancing Hanoi dance every Wednesday. (Big events live in the Big Events section!)");
+  if (activeRegions.includes("hanoi")) parts.push("<b>Hà Nội:</b> Swing Dancing Hanoi dance every Wednesday. (Big events live in the Community section!)");
   parts.push("<em>Dates can shift — check the relevant page / WhatsApp.</em>");
   return parts.join("<br>");
 }
 function actionsFor(){
-  // Only quick links for neighbour cities; Đà Nẵng uses per-day "Add to Google Calendar".
-  const ig = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>';
-  const fb = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg>';
-  let items = [];
-  if (activeRegions.includes("saigon")) items.push('<a class="ico-btn sm" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener" aria-label="Facebook" title="Saigon Swing Cats">'+fb+'</a><a class="ico-btn sm" href="https://www.instagram.com/saigonswingcats" target="_blank" rel="noopener" aria-label="Instagram" title="Saigon Swing Cats">'+ig+'</a>');
-  if (activeRegions.includes("hanoi")) items.push('<a class="ico-btn sm" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener" aria-label="Facebook" title="Swing Dancing Hanoi">'+fb+'</a><a class="ico-btn sm" href="https://www.instagram.com/hanoiswingdance" target="_blank" rel="noopener" aria-label="Instagram" title="Swing Dancing Hanoi">'+ig+'</a>');
-  return items.length ? '<div class="ico-row">'+items.join("")+'</div>' : "";
+  // Neighbours' socials live in the Community section; keep the calendar clean.
+  return "";
 }
 
 function eventsForRegion(rk, year, month){
@@ -828,13 +824,24 @@ function render(){
 
 function renderNextUp(evs){
   const box = document.getElementById("nextUp");
-  let next = evs.find(e => e.date >= today);
-  if (!next){
-    for (let k=1;k<=4 && !next;k++){
-      const d = new Date(view.getFullYear(), view.getMonth()+k, 1);
-      next = regionEventsForMonth(d.getFullYear(), d.getMonth()).find(e=>e.date>=today);
-    }
+  if (activeRegions.length > 1){
+    box.innerHTML = '<div class="next-card">' +
+      '<div><div class="when">🇻🇳 Swing across Vietnam</div>' +
+      '<div class="what">Planning a trip? The calendar below is a tentative timeline across Đà Nẵng · Sài Gòn · Hà Nội 🎒</div></div>' +
+    '</div>';
+    return;
   }
+  const findNext = (fn) => {
+    for (let k=0;k<6;k++){
+      const d = new Date(view.getFullYear(), view.getMonth()+k, 1);
+      const found = fn(d.getFullYear(), d.getMonth()).find(e=>e.date>=today);
+      if (found) return found;
+    }
+    return null;
+  };
+  // Prefer our own (Đà Nẵng) next social when it's shown; otherwise the soonest of the selected cities.
+  let next = activeRegions.includes("danang") ? findNext(eventsForMonth) : findNext(regionEventsForMonth);
+  if (!next) next = findNext(regionEventsForMonth);
   if (!next){ box.innerHTML = ""; return; }
   const d = new Date(next.date); d.setHours(0,0,0,0);
   const days = Math.round((d - today)/86400000);
@@ -919,7 +926,27 @@ syncTabs();
   else { el.addEventListener("click", e=>{ e.preventDefault(); alert("Paste our YouTube playlist link into the PLAYLIST_URL variable to activate this button."); }); }
 })();
 
+function nextDanangEvent(){
+  let d = new Date(today);
+  for (let k=0;k<6;k++){
+    const yy=d.getFullYear(), mm=d.getMonth();
+    const found = eventsForMonth(yy,mm).find(e=>e.date>=today);
+    if (found) return found;
+    d = new Date(yy, mm+1, 1);
+  }
+  return null;
+}
+function renderHeroNext(){
+  const el = document.getElementById("heroNext"); if(!el) return;
+  const ev = nextDanangEvent(); if(!ev) return;
+  const dt = new Date(ev.date); dt.setHours(0,0,0,0);
+  const dd = Math.round((dt - today)/86400000);
+  const when = dd===0 ? "Tonight" : dd===1 ? "Tomorrow" : SHORTDAYS[dt.getDay()]+" "+dt.getDate()+" "+MONTHS[dt.getMonth()];
+  el.textContent = "🗓️ Next social: "+when+" · "+ev.def.label;
+  el.style.display = "";
+}
 render();
+renderHeroNext();
 </script>
 </body>
 </html>
