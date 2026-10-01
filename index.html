@@ -197,9 +197,11 @@
 
   /* ---------- REGION TABS ---------- */
   .region-tabs{display:inline-flex;gap:6px;background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:5px;margin-bottom:18px;box-shadow:var(--shadow);flex-wrap:wrap}
-  .region-tabs button{font-family:inherit;font-weight:700;font-size:14px;border:0;background:transparent;color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer;transition:.15s}
+  .region-tabs button{font-family:inherit;font-weight:700;font-size:14px;border:0;background:transparent;color:var(--ink);padding:6px 16px 6px 6px;border-radius:999px;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:8px}
+  .region-tabs button#tabAll{padding:6px 16px}
   .region-tabs button:hover{background:var(--sun)}
   .region-tabs button.active{background:var(--ink);color:var(--cream)}
+  .region-tabs .rt-logo{width:26px;height:26px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);background:#fff;flex:0 0 26px}
   .dot-saigon{background:var(--blue)}
   .dot-hanoi{background:var(--green)}
   .day.saigon{background:var(--blue);color:#fff}
@@ -220,6 +222,14 @@
   .neigh-card h3{font-size:20px;margin:.2em 0 0}
   .neigh-card p{margin:0;color:var(--ink-2);font-weight:300;flex:1}
   .neigh-card .btn{justify-content:center}
+  .neigh-logo{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);background:#fff}
+
+  /* ---------- HAPPY FLOOR ---------- */
+  .floor-intro{background:var(--sun);border:2px solid var(--ink);border-radius:var(--radius);padding:20px 24px;margin-bottom:22px;font-weight:600;box-shadow:var(--shadow)}
+  .floor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .floor-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .floor-card h3{font-size:18px;margin:0 0 8px}
+  .floor-card p{margin:0;color:var(--ink-2);font-weight:300;font-size:15px;line-height:1.5}
   .hlw{background:linear-gradient(135deg,var(--ink),#3a3a3a);color:var(--cream)}
   .hlw h3{color:var(--sun-deep)}
   .hlw p{color:#efe9e9}
@@ -261,6 +271,7 @@
       <a href="#watch">Watch</a>
       <a href="#neighbours">Neighbours</a>
       <a href="#events">Big Events</a>
+      <a href="#floor">Floor Rules</a>
       <a href="#join">Join in</a>
     </nav>
     <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">Join WhatsApp</a>
@@ -298,9 +309,9 @@
     </div>
 
     <div class="region-tabs" id="regionTabs" role="group" aria-label="Choose which city calendars to show">
-      <button data-region="danang" class="active">📍 Đà Nẵng</button>
-      <button data-region="saigon">Sài Gòn</button>
-      <button data-region="hanoi">Hà Nội</button>
+      <button data-region="danang" class="active"><img class="rt-logo" src="logo.png" alt="">Đà Nẵng</button>
+      <button data-region="saigon"><img class="rt-logo" src="assets/saigon.jpg" alt="">Sài Gòn</button>
+      <button data-region="hanoi"><img class="rt-logo" src="assets/hanoi.jpg" alt="">Hà Nội</button>
       <button id="tabAll" class="all">✨ Show all</button>
     </div>
 
@@ -459,11 +470,13 @@
     </div>
     <div class="neigh-grid">
       <article class="neigh-card">
+        <img class="neigh-logo" src="assets/saigon.jpg" alt="Saigon Swing Cats logo">
         <h3>🌆 Saigon Swing Cats</h3>
         <p>Ho Chi Minh City's swing crew — social dancing <b>every Wednesday</b>. Check their page for the venue.</p>
         <a class="btn ghost" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener">👍 Facebook</a>
       </article>
       <article class="neigh-card">
+        <img class="neigh-logo" src="assets/hanoi.jpg" alt="Hanoi Swing Dance logo">
         <h3>🏯 Swing Dancing Hanoi</h3>
         <p>Hanoi's swing community — social dancing <b>every Wednesday</b>. Check their page for the venue.</p>
         <a class="btn ghost" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener">👍 Facebook</a>
@@ -493,6 +506,30 @@
         <a class="btn ghost" href="https://www.facebook.com/vietnamlindyexchange" target="_blank" rel="noopener">👍 Facebook</a>
       </article>
     </div>
+  </section>
+
+  <!-- HAPPY FLOOR -->
+  <section id="floor" class="wrap">
+    <div class="sec-head">
+      <h2>The Happy Floor 💛</h2>
+      <p>Little things that keep our dance floor fun, kind and safe for everyone — inspired by our neighbours in Hà Nội &amp; Sài Gòn.</p>
+    </div>
+    <div class="floor-intro">At a Swing Cool Kidz social, everyone should feel welcome and safe. These simple guidelines help us share the floor with care — please read them and help us keep the good vibes going!</div>
+    <div class="floor-grid">
+      <article class="floor-card"><h3>🤝 Just ask</h3><p>Anyone can ask anyone to dance — no partner needed. A smile and a simple “Would you like to dance?” is all it takes. A “no thanks” is completely fine; no explanation needed, and no hard feelings.</p></article>
+      <article class="floor-card"><h3>🪄 Ask before the extras</h3><p>Want to dip, do a close move, or something a little adventurous? Ask first — every time. Consent is an ongoing conversation, not a one-off, so check in during the dance too.</p></article>
+      <article class="floor-card"><h3>🧭 Give space</h3><p>Whoever is travelling backwards has right of way. Keep your moves small when the floor is busy, and keep an eye on the dancers around you.</p></article>
+      <article class="floor-card"><h3>🚫 No surprise aerials</h3><p>Flips and air steps need consent, space and practice — never over a crowded floor. If in doubt, save them for the edge of the room when there's space, and agree first.</p></article>
+      <article class="floor-card"><h3>🧼 Come fresh</h3><p>Fresh shirt, deodorant, and a spare if you sweat a lot. Comfortable shoes, clean soft hands, tidy nails — and easy on the strong perfume (allergies!).</p></article>
+      <article class="floor-card"><h3>🦋 Dance gently</h3><p>Lead and follow kindly — no yanking, forcing or squeezing. If something hurts or feels off, speak up. We're here to enjoy ourselves, not to win anything.</p></article>
+      <article class="floor-card"><h3>📚 Not your teacher</h3><p>We all love a good tip, but unsolicited coaching can spoil a dance. Save teaching for class, and if a partner asks for feedback, keep it kind and specific.</p></article>
+      <article class="floor-card"><h3>🎵 Dance the song</h3><p>Keep the dance to one song unless you both fancy more. Always thank your partner — a hug, a high-five or a “that was fun!” goes a long way.</p></article>
+      <article class="floor-card"><h3>🌱 Welcome the new kids</h3><p>Dance with beginners and newcomers — we were all new once. Introduce yourself, and help make someone's very first social a great one.</p></article>
+      <article class="floor-card"><h3>📸 Photos with consent</h3><p>Ask before filming or photographing people, and be mindful of anyone who'd rather stay off camera.</p></article>
+      <article class="floor-card"><h3>🏠 Love the space</h3><p>Buy a drink or food, tidy up after yourself, and tell us about spills (slippery!). Be kind to the venue staff — they make our home possible.</p></article>
+      <article class="floor-card"><h3>🚨 A safe space</h3><p>Harassment of any kind isn't welcome here. If anything feels uncomfortable — for you or for someone else — tell an organiser. We look after each other.</p></article>
+    </div>
+    <p style="margin-top:22px;color:var(--ink-2);font-weight:300">Questions or feedback? Come talk to us, or message us on WhatsApp / Instagram / Facebook. Let's keep Đà Nẵng's floor swinging with kindness. 💃🕺</p>
   </section>
 
   <!-- JOIN -->
