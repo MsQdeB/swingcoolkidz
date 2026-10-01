@@ -193,6 +193,28 @@
   .watch-card a:hover{background:var(--sun)}
   .watch-card small{display:block;color:var(--ink-2);font-weight:300;margin-top:2px}
 
+  /* ---------- REGION TABS ---------- */
+  .region-tabs{display:inline-flex;gap:6px;background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:5px;margin-bottom:18px;box-shadow:var(--shadow);flex-wrap:wrap}
+  .region-tabs button{font-family:inherit;font-weight:700;font-size:14px;border:0;background:transparent;color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer;transition:.15s}
+  .region-tabs button:hover{background:var(--sun)}
+  .region-tabs button.active{background:var(--ink);color:var(--cream)}
+  .dot-guest{background:var(--pink)}
+  .dot-event{background:var(--ink)}
+  .day.guest{background:var(--pink);color:#fff}
+  .day.event{background:var(--ink);color:var(--cream)}
+
+  /* ---------- NEIGHBOURS ---------- */
+  .neigh-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+  @media(max-width:900px){.neigh-grid{grid-template-columns:1fr}}
+  .neigh-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+  .neigh-card h3{font-size:20px;margin:.2em 0 0}
+  .neigh-card p{margin:0;color:var(--ink-2);font-weight:300;flex:1}
+  .neigh-card .btn{justify-content:center}
+  .hlw{background:linear-gradient(135deg,var(--ink),#3a3a3a);color:var(--cream)}
+  .hlw h3{color:var(--sun-deep)}
+  .hlw p{color:#efe9e9}
+  .hlw .pill{background:var(--sun-deep);color:var(--ink)}
+
   footer.site{background:var(--ink);color:var(--cream);padding:52px 0 40px;margin-top:20px;border-top:6px solid var(--pink)}
   footer .big{font-family:"Alfa Slab One";font-size:clamp(28px,5vw,44px);color:var(--sun-deep);margin:0 0 6px}
   footer a{color:var(--cream)}
@@ -223,6 +245,7 @@
       <a href="#schedule">Schedule</a>
       <a href="#venues">Venues &amp; Fees</a>
       <a href="#watch">Watch</a>
+      <a href="#neighbours">Neighbours</a>
       <a href="#join">Join in</a>
     </nav>
     <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">Join WhatsApp</a>
@@ -256,7 +279,13 @@
   <section id="calendar" class="wrap">
     <div class="sec-head">
       <h2>This Month</h2>
-      <p>Every date we're dancing — tap a highlighted day for details and to add it to your calendar.</p>
+      <p>Every date we're dancing — tap a highlighted day for details. Travelling? Switch city below.</p>
+    </div>
+
+    <div class="region-tabs" id="regionTabs" role="tablist" aria-label="Choose city calendar">
+      <button data-region="danang" class="active">📍 Đà Nẵng</button>
+      <button data-region="saigon">Sài Gòn</button>
+      <button data-region="hanoi">Hà Nội</button>
     </div>
 
     <div id="nextUp"></div>
@@ -269,18 +298,10 @@
           <button id="calNext" aria-label="Next month">›</button>
         </div>
       </div>
-      <div class="legend">
-        <span><i class="dot-blends"></i>Blends · Social + Taster</span>
-        <span><i class="dot-hyatt"></i>Hyatt Terrasse · Live Jazz</span>
-      </div>
+      <div class="legend" id="calLegend"></div>
       <div class="grid" id="calGrid"></div>
-      <div class="cal-foot">
-        <b>Regular rhythm:</b> one week at <b>Blends</b> (Thursday, 7–9PM, taster class first), the next week at <b>Hyatt</b> (Wednesday, 8–10PM, live jazz) — alternating, so there's a social almost every week.<br>
-        <em>Dates can shift around holidays — check WhatsApp for the latest.</em>
-      </div>
-      <div class="cal-actions">
-        <a class="btn sun" href="calendar.ics">📅 Add to your calendar so you don't miss it</a>
-      </div>
+      <div class="cal-foot" id="calFoot"></div>
+      <div class="cal-actions" id="calActions"></div>
     </div>
   </section>
 
@@ -404,11 +425,39 @@
           <li><a href="https://www.youtube.com/results?search_query=asian+golden+swing+quartet" target="_blank" rel="noopener">Asian Golden Swing Quartet (AGSQ)</a><small>Asia's beloved swing quartet.</small></li>
           <li><a href="https://www.youtube.com/@HatJazz" target="_blank" rel="noopener">HAT Jazz Band</a><small>Our local band at Hyatt Terrasse — hear them live! 🎺</small></li>
           <li><a href="https://www.youtube.com/results?search_query=Michael+Gamble+and+the+Rhythm+Serenaders" target="_blank" rel="noopener">Michael Gamble &amp; the Rhythm Serenaders</a><small>Modern swing band, classic sound.</small></li>
+          <li><a href="https://www.youtube.com/results?search_query=eyal+vilner+big+band" target="_blank" rel="noopener">Eyal Vilner Big Band</a><small>New York big band keeping the classic sound alive.</small></li>
           <li><a href="https://www.youtube.com/results?search_query=Count+Basie+Orchestra" target="_blank" rel="noopener">Count Basie</a><small>The swinging-est big band that ever was. 🎹</small></li>
           <li><a href="https://www.youtube.com/results?search_query=Duke+Ellington" target="_blank" rel="noopener">Duke Ellington</a><small>The Duke — jazz royalty and a Lindy Hop staple.</small></li>
           <li><a href="https://www.youtube.com/results?search_query=Ella+Fitzgerald" target="_blank" rel="noopener">Ella Fitzgerald</a><small>The First Lady of Song.</small></li>
           <li><a href="https://www.youtube.com/results?search_query=Lionel+Hampton" target="_blank" rel="noopener">Lionel Hampton</a><small>Vibraphone legend — pure swing energy.</small></li>
         </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- NEIGHBOURS -->
+  <section id="neighbours" class="wrap">
+    <div class="sec-head">
+      <h2>Swing Neighbours 🇻🇳</h2>
+      <p>Our friends across Vietnam — go dance with them when you travel!</p>
+    </div>
+    <div class="neigh-grid">
+      <article class="neigh-card">
+        <h3>🌆 Saigon Swing Cats</h3>
+        <p>Ho Chi Minh City's swing crew — social dancing <b>every Wednesday</b>. Check their page for the venue.</p>
+        <a class="btn ghost" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener">👍 Facebook</a>
+      </article>
+      <article class="neigh-card">
+        <h3>🏯 Swing Dancing Hanoi</h3>
+        <p>Hanoi's swing community — social dancing <b>every Wednesday</b>. Check their page for the venue.</p>
+        <a class="btn ghost" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener">👍 Facebook</a>
+      </article>
+      <article class="neigh-card hlw">
+        <span class="pill">20–22 Nov 2026</span>
+        <h3>🎉 Hanoi Lindy Weekend</h3>
+        <p>Three days of world-class workshops, bands &amp; parties in the heart of Hanoi. Mark your calendar!</p>
+        <a class="btn sun" href="https://hanoilindyweekend.com" target="_blank" rel="noopener">🔗 hanoilindyweekend.com</a>
+        <a class="btn ghost" href="https://www.facebook.com/hanoilindyweekend" target="_blank" rel="noopener">👍 Facebook</a>
       </article>
     </div>
   </section>
@@ -457,6 +506,7 @@
     <div class="modal-actions">
       <a class="btn primary" id="mGcal" target="_blank" rel="noopener">📅 Add to Google Calendar</a>
       <a class="btn ghost" href="calendar.ics" id="mIcs">⬇️ Download all dates (.ics)</a>
+      <a class="btn ghost" id="mPage" target="_blank" rel="noopener" style="display:none">🔗 Visit their page</a>
       <button class="btn ghost" id="mClose">Close</button>
     </div>
   </div>
@@ -513,6 +563,34 @@ const EVENTS = {
       "🗳️ Vote attendance in our WhatsApp poll for table reservation (or DM via IG/FB)",
       "📍 Hyatt Regency Đà Nẵng — Terrasse Bar"
     ]
+  },
+
+  /* Neighbour cities — weekly Wednesday socials (shown as tabs on the calendar) */
+  saigon: {
+    label: "Sài Gòn",
+    title: "Saigon Swing Cats — Weekly Social",
+    time: "Every Wednesday · time varies",
+    location: "Ho Chi Minh City, Vietnam",
+    page: "https://www.facebook.com/saigonswingcats",
+    facts: [
+      "🗓️ Every Wednesday",
+      "📍 Ho Chi Minh City, Vietnam",
+      "⏰ Time & venue can vary — check their page",
+      "🔗 facebook.com/saigonswingcats"
+    ]
+  },
+  hanoi: {
+    label: "Hà Nội",
+    title: "Swing Dancing Hanoi — Weekly Social",
+    time: "Every Wednesday · time varies",
+    location: "Hanoi, Vietnam",
+    page: "https://www.facebook.com/hanoiswingdance",
+    facts: [
+      "🗓️ Every Wednesday",
+      "📍 Hanoi, Vietnam",
+      "⏰ Time & venue can vary — check their page",
+      "🔗 facebook.com/hanoiswingdance"
+    ]
   }
 };
 
@@ -555,6 +633,57 @@ function eventsForMonth(year, month){
   }
   return out.sort((a,b)=>a.date-b.date);
 }
+
+/* ---- REGIONS (city tabs) ---- */
+const REGIONS = {
+  danang: {
+    legend: [{cls:"blends", label:"Blends · Social + Taster"}, {cls:"hyatt", label:"Hyatt Terrasse · Live Jazz"}],
+    foot: '<b>Regular rhythm:</b> one week at <b>Blends</b> (Thursday, 7–9PM, taster class first), the next week at <b>Hyatt</b> (Wednesday, 8–10PM, live jazz) — alternating, so there\'s a social almost every week.<br><em>Dates can shift around holidays — check WhatsApp for the latest.</em>',
+    actions: '<a class="btn sun" href="calendar.ics">📅 Add to your calendar so you don\'t miss it</a>'
+  },
+  saigon: {
+    legend: [{cls:"guest", label:"Saigon Swing Cats · Every Wednesday"}],
+    foot: '<b>Saigon Swing Cats</b> dance <b>every Wednesday</b> in Ho Chi Minh City. Time &amp; venue can vary — confirm on their Facebook page.',
+    actions: '<a class="btn ghost" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener">🔗 Saigon Swing Cats on Facebook</a>'
+  },
+  hanoi: {
+    legend: [{cls:"guest", label:"Swing Dancing Hanoi · Every Wednesday"}, {cls:"event", label:"Hanoi Lindy Weekend"}],
+    foot: '<b>Swing Dancing Hanoi</b> dance <b>every Wednesday</b>. Plus the big one: <b>Hanoi Lindy Weekend 2026</b> — 20–22 Nov. 🎉 <a href="https://hanoilindyweekend.com" target="_blank" rel="noopener">Details →</a>',
+    actions: '<a class="btn ghost" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener">🔗 Swing Dancing Hanoi on Facebook</a>'
+  }
+};
+let region = "danang";
+
+/* Hanoi Lindy Weekend 2026 — the neighbours' big event (20–22 Nov) */
+const SPECIALS = [
+  {region:"hanoi", date:new Date(2026,10,20)},
+  {region:"hanoi", date:new Date(2026,10,21)},
+  {region:"hanoi", date:new Date(2026,10,22)}
+];
+const HLW_DEF = {
+  label: "HLW", title: "Hanoi Lindy Weekend 2026", time: "20–22 Nov 2026",
+  location: "Hanoi, Vietnam", page: "https://hanoilindyweekend.com",
+  facts: ["🗓️ 20–22 November 2026", "📍 Hanoi, Vietnam", "🎓 World-class workshops, bands &amp; parties", "🔗 hanoilindyweekend.com", "📸 @hanoi.lindyweekend"]
+};
+
+function neighborEventsForMonth(year, month){
+  const out = [];
+  const days = new Date(year, month+1, 0).getDate();
+  for (let d=1; d<=days; d++){
+    const dt = new Date(year, month, d);
+    if (dt.getDay()===3) out.push({ date: dt, cls: "guest", def: EVENTS[region] });
+  }
+  SPECIALS.forEach(s=>{
+    if (s.region===region && s.date.getFullYear()===year && s.date.getMonth()===month)
+      out.push({ date: new Date(s.date), cls: "event", def: HLW_DEF });
+  });
+  return out.sort((a,b)=>a.date-b.date);
+}
+function regionEventsForMonth(year, month){
+  return (region==="danang")
+    ? eventsForMonth(year, month).map(e=>({ date:e.date, cls:e.key, def:e.def }))
+    : neighborEventsForMonth(year, month);
+}
 function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
 function longDate(d){return WEEKDAYS[d.getDay()]+", "+MONTHS[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
 function pad(n){return String(n).padStart(2,"0")}
@@ -583,9 +712,14 @@ function render(){
   const y = view.getFullYear(), m = view.getMonth();
   document.getElementById("calMonthLabel").textContent = MONTHS[m] + " " + y;
 
-  const evs = eventsForMonth(y, m);
+  const R = REGIONS[region];
+  const evs = regionEventsForMonth(y, m);
   const byDay = {};
   evs.forEach(e => byDay[ymd(e.date)] = e);
+
+  document.getElementById("calLegend").innerHTML = R.legend.map(l=>'<span><i class="dot-'+l.cls+'"></i>'+l.label+'</span>').join("");
+  document.getElementById("calFoot").innerHTML = R.foot;
+  document.getElementById("calActions").innerHTML = R.actions;
 
   const grid = document.getElementById("calGrid");
   grid.innerHTML = "";
@@ -605,7 +739,7 @@ function render(){
     const date = new Date(y, m, d);
     const ev = byDay[ymd(date)];
     const el = document.createElement("div");
-    el.className = "day" + (ev ? " has " + ev.key : "");
+    el.className = "day" + (ev ? " has " + ev.cls : "");
     if (date.getTime() === today.getTime()) el.classList.add("today");
     el.innerHTML = '<span class="n">'+d+'</span>' + (ev ? '<span class="lbl">'+ev.def.label+'</span>' : '');
     if (ev){ el.title = ev.def.title + " — tap for details"; el.addEventListener("click", ()=>openModal(ev)); }
@@ -626,30 +760,42 @@ function renderNextUp(evs){
   if (!next){
     for (let k=1;k<=4 && !next;k++){
       const d = new Date(view.getFullYear(), view.getMonth()+k, 1);
-      next = eventsForMonth(d.getFullYear(), d.getMonth()).find(e=>e.date>=today);
+      next = regionEventsForMonth(d.getFullYear(), d.getMonth()).find(e=>e.date>=today);
     }
   }
   if (!next){ box.innerHTML = ""; return; }
   const d = new Date(next.date); d.setHours(0,0,0,0);
   const days = Math.round((d - today)/86400000);
   const when = days===0 ? "TONIGHT!" : days===1 ? "TOMORROW" : WEEKDAYS[d.getDay()]+" · "+MONTHS[d.getMonth()].slice(0,3)+" "+d.getDate();
+  let action = "";
+  if (next.def.start && next.def.end)
+    action = '<a class="btn sun tag" style="margin-left:auto" target="_blank" rel="noopener" href="'+gcalUrl(next)+'">📅 Add to Google Calendar</a>';
+  else if (next.def.page)
+    action = '<a class="btn sun tag" style="margin-left:auto" target="_blank" rel="noopener" href="'+next.def.page+'">🔗 Their page</a>';
   box.innerHTML =
     '<div class="next-card">' +
-      '<div><div class="when">'+when+' · '+next.def.time+'</div>' +
-      '<div class="what">'+next.def.title+'</div></div>' +
-      '<a class="btn sun tag" style="margin-left:auto" target="_blank" rel="noopener" href="'+gcalUrl(next)+'">📅 Add to Google Calendar</a>' +
+      '<div><div class="when">'+when+'</div>' +
+      '<div class="what">'+next.def.title+(next.def.time ? " · "+next.def.time : "")+'</div></div>' +
+      action +
     '</div>';
 }
 
 /* ---------- modal ---------- */
 function openModal(ev){
-  document.getElementById("mPill").textContent = ev.def.label;
-  document.getElementById("mTitle").textContent = ev.def.title;
+  const def = ev.def;
+  document.getElementById("mPill").textContent = def.label;
+  document.getElementById("mTitle").textContent = def.title;
   const ul = document.getElementById("mFacts"); ul.innerHTML = "";
-  [ "🕘 "+ev.def.time, "📅 "+longDate(ev.date), ...ev.def.facts ].forEach(f=>{
+  [ "🕘 "+def.time, "📅 "+longDate(ev.date), ...def.facts ].forEach(f=>{
     const li = document.createElement("li"); li.innerHTML = f; ul.appendChild(li);
   });
-  document.getElementById("mGcal").href = gcalUrl(ev);
+  const gcal = document.getElementById("mGcal");
+  if (def.start && def.end){ gcal.style.display = ""; gcal.href = gcalUrl(ev); }
+  else { gcal.style.display = "none"; }
+  const page = document.getElementById("mPage");
+  if (def.page){ page.style.display = ""; page.href = def.page; }
+  else { page.style.display = "none"; }
+  document.getElementById("mIcs").style.display = (region === "danang") ? "" : "none";
   document.getElementById("modal").classList.add("on");
 }
 document.getElementById("mClose").addEventListener("click", ()=>document.getElementById("modal").classList.remove("on"));
@@ -657,6 +803,23 @@ document.getElementById("modal").addEventListener("click", e=>{ if (e.target.id=
 
 document.getElementById("calPrev").addEventListener("click", ()=>{ view.setMonth(view.getMonth()-1); render(); });
 document.getElementById("calNext").addEventListener("click", ()=>{ view.setMonth(view.getMonth()+1); render(); });
+
+document.querySelectorAll("#regionTabs button").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    region = b.dataset.region;
+    document.querySelectorAll("#regionTabs button").forEach(x=>x.classList.toggle("active", x===b));
+    render();
+  });
+});
+
+/* deep-link: open a city directly, e.g. index.html#hanoi */
+(function(){
+  const hr = (location.hash || "").replace("#", "");
+  if (REGIONS[hr]){
+    region = hr;
+    document.querySelectorAll("#regionTabs button").forEach(x=>x.classList.toggle("active", x.dataset.region===hr));
+  }
+})();
 
 /* playlist button */
 (function(){
