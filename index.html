@@ -27,6 +27,8 @@
     --pink-deep:#B7266F;
     --sun:#F7E7A8;
     --sun-deep:#E3C246;
+    --blue:#2E6FDB;
+    --green:#1F9D6B;
     --line:#17171722;
     --shadow:0 16px 40px -18px rgba(23,23,23,.4);
     --radius:20px;
@@ -198,13 +200,24 @@
   .region-tabs button{font-family:inherit;font-weight:700;font-size:14px;border:0;background:transparent;color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer;transition:.15s}
   .region-tabs button:hover{background:var(--sun)}
   .region-tabs button.active{background:var(--ink);color:var(--cream)}
-  .dot-guest{background:var(--pink)}
+  .dot-saigon{background:var(--blue)}
+  .dot-hanoi{background:var(--green)}
   .dot-event{background:var(--ink)}
-  .day.guest{background:var(--pink);color:#fff}
+  .day.saigon{background:var(--blue);color:#fff}
+  .day.hanoi{background:var(--green);color:#fff}
   .day.event{background:var(--ink);color:var(--cream)}
+  .day.multi{background:#fff;color:var(--ink);gap:2px;padding:4px}
+  .day .labels{display:flex;flex-wrap:wrap;gap:2px;justify-content:center}
+  .day .chip{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.2px;padding:1px 5px;border-radius:6px;color:#fff;line-height:1.5}
+  .chip.blends{background:var(--sun-deep);color:#3a2600}
+  .chip.hyatt{background:var(--pink)}
+  .chip.saigon{background:var(--blue)}
+  .chip.hanoi{background:var(--green)}
+  .chip.event{background:var(--ink)}
+  @media(max-width:520px){.day .labels{display:none}}
 
   /* ---------- NEIGHBOURS ---------- */
-  .neigh-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+  .neigh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
   @media(max-width:900px){.neigh-grid{grid-template-columns:1fr}}
   .neigh-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
   .neigh-card h3{font-size:20px;margin:.2em 0 0}
@@ -214,6 +227,10 @@
   .hlw h3{color:var(--sun-deep)}
   .hlw p{color:#efe9e9}
   .hlw .pill{background:var(--sun-deep);color:var(--ink)}
+  .vls{background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff}
+  .vls h3{color:#fff}
+  .vls p{color:#ffeaf5}
+  .vls .pill{background:#fff;color:var(--pink-deep)}
 
   footer.site{background:var(--ink);color:var(--cream);padding:52px 0 40px;margin-top:20px;border-top:6px solid var(--pink)}
   footer .big{font-family:"Alfa Slab One";font-size:clamp(28px,5vw,44px);color:var(--sun-deep);margin:0 0 6px}
@@ -246,6 +263,7 @@
       <a href="#venues">Venues &amp; Fees</a>
       <a href="#watch">Watch</a>
       <a href="#neighbours">Neighbours</a>
+      <a href="#events">Big Events</a>
       <a href="#join">Join in</a>
     </nav>
     <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">Join WhatsApp</a>
@@ -279,13 +297,14 @@
   <section id="calendar" class="wrap">
     <div class="sec-head">
       <h2>This Month</h2>
-      <p>Every date we're dancing — tap a highlighted day for details. Travelling? Switch city below.</p>
+      <p>Every date we're dancing — tap a day for details. Want to see our neighbours too? Tick a city. 📍 Đà Nẵng is on by default.</p>
     </div>
 
-    <div class="region-tabs" id="regionTabs" role="tablist" aria-label="Choose city calendar">
+    <div class="region-tabs" id="regionTabs" role="group" aria-label="Choose which city calendars to show">
       <button data-region="danang" class="active">📍 Đà Nẵng</button>
       <button data-region="saigon">Sài Gòn</button>
       <button data-region="hanoi">Hà Nội</button>
+      <button id="tabAll" class="all">✨ Show all</button>
     </div>
 
     <div id="nextUp"></div>
@@ -452,12 +471,29 @@
         <p>Hanoi's swing community — social dancing <b>every Wednesday</b>. Check their page for the venue.</p>
         <a class="btn ghost" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener">👍 Facebook</a>
       </article>
+    </div>
+  </section>
+
+  <!-- BIG EVENTS -->
+  <section id="events" class="wrap">
+    <div class="sec-head">
+      <h2>Big Events 🎪</h2>
+      <p>Festivals &amp; exchanges worth travelling for — brilliant for levelling up your dancing.</p>
+    </div>
+    <div class="neigh-grid">
       <article class="neigh-card hlw">
         <span class="pill">20–22 Nov 2026</span>
         <h3>🎉 Hanoi Lindy Weekend</h3>
-        <p>Three days of world-class workshops, bands &amp; parties in the heart of Hanoi. Mark your calendar!</p>
+        <p>Three days of world-class workshops, live bands &amp; parties in the heart of Hanoi. Hosted by Hanoi Swing Dance.</p>
         <a class="btn sun" href="https://hanoilindyweekend.com" target="_blank" rel="noopener">🔗 hanoilindyweekend.com</a>
         <a class="btn ghost" href="https://www.facebook.com/hanoilindyweekend" target="_blank" rel="noopener">👍 Facebook</a>
+      </article>
+      <article class="neigh-card vls">
+        <span class="pill">19–21 Mar 2027</span>
+        <h3>🌴 Vietnam Lindy Exchange (VLX)</h3>
+        <p>The <b>17th edition</b> — 3 days of live bands, international DJs &amp; beach dancing in the UNESCO town of Hội An. Registration is first-come: <b>group</b> opens 10 Oct 2026, <b>individual</b> 17 Oct 2026 (18:00 GMT+7).</p>
+        <a class="btn primary" href="https://thevlx.net/" target="_blank" rel="noopener">🔗 thevlx.net</a>
+        <a class="btn ghost" href="https://www.facebook.com/vietnamlindyexchange" target="_blank" rel="noopener">👍 Facebook</a>
       </article>
     </div>
   </section>
@@ -634,27 +670,34 @@ function eventsForMonth(year, month){
   return out.sort((a,b)=>a.date-b.date);
 }
 
-/* ---- REGIONS (city tabs) ---- */
-const REGIONS = {
-  danang: {
-    legend: [{cls:"blends", label:"Blends · Social + Taster"}, {cls:"hyatt", label:"Hyatt Terrasse · Live Jazz"}],
-    foot: '<b>Regular rhythm:</b> one week at <b>Blends</b> (Thursday, 7–9PM, taster class first), the next week at <b>Hyatt</b> (Wednesday, 8–10PM, live jazz) — alternating, so there\'s a social almost every week.<br><em>Dates can shift around holidays — check WhatsApp for the latest.</em>',
-    actions: '<a class="btn sun" href="calendar.ics">📅 Add to your calendar so you don\'t miss it</a>'
-  },
-  saigon: {
-    legend: [{cls:"guest", label:"Saigon Swing Cats · Every Wednesday"}],
-    foot: '<b>Saigon Swing Cats</b> dance <b>every Wednesday</b> in Ho Chi Minh City. Time &amp; venue can vary — confirm on their Facebook page.',
-    actions: '<a class="btn ghost" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener">🔗 Saigon Swing Cats on Facebook</a>'
-  },
-  hanoi: {
-    legend: [{cls:"guest", label:"Swing Dancing Hanoi · Every Wednesday"}, {cls:"event", label:"Hanoi Lindy Weekend"}],
-    foot: '<b>Swing Dancing Hanoi</b> dance <b>every Wednesday</b>. Plus the big one: <b>Hanoi Lindy Weekend 2026</b> — 20–22 Nov. 🎉 <a href="https://hanoilindyweekend.com" target="_blank" rel="noopener">Details →</a>',
-    actions: '<a class="btn ghost" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener">🔗 Swing Dancing Hanoi on Facebook</a>'
-  }
-};
-let region = "danang";
+/* ---- City selection (multi-select) ---- */
+const REGIONS = { danang:{name:"Đà Nẵng"}, saigon:{name:"Sài Gòn"}, hanoi:{name:"Hà Nội"} };
+let activeRegions = ["danang"];   // Đà Nẵng is on by default
 
-/* Hanoi Lindy Weekend 2026 — the neighbours' big event (20–22 Nov) */
+function legendFor(){
+  const items = [];
+  if (activeRegions.includes("danang")){ items.push({cls:"blends", label:"Blends · Social + Taster"}); items.push({cls:"hyatt", label:"Hyatt Terrasse · Live Jazz"}); }
+  if (activeRegions.includes("saigon")) items.push({cls:"saigon", label:"Saigon Swing Cats · Wed"});
+  if (activeRegions.includes("hanoi")){ items.push({cls:"hanoi", label:"Swing Dancing Hanoi · Wed"}); items.push({cls:"event", label:"Hanoi Lindy Weekend"}); }
+  return items.map(l=>'<span><i class="dot-'+l.cls+'"></i>'+l.label+'</span>').join("");
+}
+function footFor(){
+  const parts = [];
+  if (activeRegions.includes("danang")) parts.push("<b>Đà Nẵng:</b> alternating weeks — <b>Blends</b> Thu 7–9PM (taster class first) &amp; <b>Hyatt</b> Wed 8–10PM.");
+  if (activeRegions.includes("saigon")) parts.push("<b>Sài Gòn:</b> Saigon Swing Cats dance every Wednesday.");
+  if (activeRegions.includes("hanoi")) parts.push("<b>Hà Nội:</b> Swing Dancing Hanoi every Wednesday · <b>Hanoi Lindy Weekend 20–22 Nov</b>.");
+  parts.push("<em>Dates can shift — check the relevant page / WhatsApp.</em>");
+  return parts.join("<br>");
+}
+function actionsFor(){
+  let html = "";
+  if (activeRegions.includes("danang")) html += '<a class="btn sun" href="calendar.ics">📅 Add Đà Nẵng dates to your calendar</a> ';
+  if (activeRegions.includes("saigon")) html += '<a class="btn ghost" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener">🔗 Saigon page</a> ';
+  if (activeRegions.includes("hanoi")) html += '<a class="btn ghost" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener">🔗 Hanoi page</a> ';
+  return html;
+}
+
+/* Hanoi Lindy Weekend 2026 — a neighbours' big event (20–22 Nov) */
 const SPECIALS = [
   {region:"hanoi", date:new Date(2026,10,20)},
   {region:"hanoi", date:new Date(2026,10,21)},
@@ -666,23 +709,24 @@ const HLW_DEF = {
   facts: ["🗓️ 20–22 November 2026", "📍 Hanoi, Vietnam", "🎓 World-class workshops, bands &amp; parties", "🔗 hanoilindyweekend.com", "📸 @hanoi.lindyweekend"]
 };
 
-function neighborEventsForMonth(year, month){
+function eventsForRegion(rk, year, month){
+  if (rk === "danang") return eventsForMonth(year, month).map(e=>({ date:e.date, cls:e.key, def:e.def }));
   const out = [];
   const days = new Date(year, month+1, 0).getDate();
   for (let d=1; d<=days; d++){
     const dt = new Date(year, month, d);
-    if (dt.getDay()===3) out.push({ date: dt, cls: "guest", def: EVENTS[region] });
+    if (dt.getDay() === 3) out.push({ date: dt, cls: rk, def: EVENTS[rk] });
   }
   SPECIALS.forEach(s=>{
-    if (s.region===region && s.date.getFullYear()===year && s.date.getMonth()===month)
+    if (s.region===rk && s.date.getFullYear()===year && s.date.getMonth()===month)
       out.push({ date: new Date(s.date), cls: "event", def: HLW_DEF });
   });
-  return out.sort((a,b)=>a.date-b.date);
+  return out;
 }
 function regionEventsForMonth(year, month){
-  return (region==="danang")
-    ? eventsForMonth(year, month).map(e=>({ date:e.date, cls:e.key, def:e.def }))
-    : neighborEventsForMonth(year, month);
+  let out = [];
+  activeRegions.forEach(rk => { out = out.concat(eventsForRegion(rk, year, month)); });
+  return out.sort((a,b)=>a.date-b.date);
 }
 function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
 function longDate(d){return WEEKDAYS[d.getDay()]+", "+MONTHS[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
@@ -712,14 +756,13 @@ function render(){
   const y = view.getFullYear(), m = view.getMonth();
   document.getElementById("calMonthLabel").textContent = MONTHS[m] + " " + y;
 
-  const R = REGIONS[region];
   const evs = regionEventsForMonth(y, m);
   const byDay = {};
-  evs.forEach(e => byDay[ymd(e.date)] = e);
+  evs.forEach(e => { const k = ymd(e.date); (byDay[k] = byDay[k] || []).push(e); });
 
-  document.getElementById("calLegend").innerHTML = R.legend.map(l=>'<span><i class="dot-'+l.cls+'"></i>'+l.label+'</span>').join("");
-  document.getElementById("calFoot").innerHTML = R.foot;
-  document.getElementById("calActions").innerHTML = R.actions;
+  document.getElementById("calLegend").innerHTML = legendFor();
+  document.getElementById("calFoot").innerHTML = footFor();
+  document.getElementById("calActions").innerHTML = actionsFor();
 
   const grid = document.getElementById("calGrid");
   grid.innerHTML = "";
@@ -737,12 +780,21 @@ function render(){
   }
   for (let d=1; d<=daysInMonth; d++){
     const date = new Date(y, m, d);
-    const ev = byDay[ymd(date)];
+    const dayEvs = byDay[ymd(date)] || [];
     const el = document.createElement("div");
-    el.className = "day" + (ev ? " has " + ev.cls : "");
+    if (dayEvs.length === 1){
+      el.className = "day has " + dayEvs[0].cls;
+      el.innerHTML = '<span class="n">'+d+'</span><span class="lbl">'+dayEvs[0].def.label+'</span>';
+    } else if (dayEvs.length > 1){
+      el.className = "day has multi";
+      el.innerHTML = '<span class="n">'+d+'</span><span class="labels">' +
+        dayEvs.map(e=>'<span class="chip '+e.cls+'">'+e.def.label+'</span>').join("") + '</span>';
+    } else {
+      el.className = "day";
+      el.innerHTML = '<span class="n">'+d+'</span>';
+    }
     if (date.getTime() === today.getTime()) el.classList.add("today");
-    el.innerHTML = '<span class="n">'+d+'</span>' + (ev ? '<span class="lbl">'+ev.def.label+'</span>' : '');
-    if (ev){ el.title = ev.def.title + " — tap for details"; el.addEventListener("click", ()=>openModal(ev)); }
+    if (dayEvs.length){ el.title = dayEvs.map(e=>e.def.title).join(" · ") + " — tap for details"; el.addEventListener("click", ()=>openModal(dayEvs)); }
     grid.appendChild(el);
   }
   const trail = (7 - ((firstDow + daysInMonth) % 7)) % 7;
@@ -781,21 +833,31 @@ function renderNextUp(evs){
 }
 
 /* ---------- modal ---------- */
-function openModal(ev){
-  const def = ev.def;
-  document.getElementById("mPill").textContent = def.label;
-  document.getElementById("mTitle").textContent = def.title;
+function openModal(input){
+  const evs = Array.isArray(input) ? input : [input];
+  document.getElementById("mPill").textContent = evs.map(e=>e.def.label).join(" + ");
+  document.getElementById("mTitle").textContent = evs.length===1 ? evs[0].def.title : "Multiple socials this night";
   const ul = document.getElementById("mFacts"); ul.innerHTML = "";
-  [ "🕘 "+def.time, "📅 "+longDate(ev.date), ...def.facts ].forEach(f=>{
-    const li = document.createElement("li"); li.innerHTML = f; ul.appendChild(li);
+  evs.forEach(ev=>{
+    const def = ev.def;
+    if (evs.length > 1){
+      const h = document.createElement("li");
+      h.innerHTML = '<b>'+def.label+' — '+def.title+'</b>';
+      ul.appendChild(h);
+    }
+    [ "🕘 "+def.time, "📅 "+longDate(ev.date), ...def.facts ].forEach(f=>{
+      const li = document.createElement("li"); li.innerHTML = f; ul.appendChild(li);
+    });
   });
   const gcal = document.getElementById("mGcal");
-  if (def.start && def.end){ gcal.style.display = ""; gcal.href = gcalUrl(ev); }
+  const gcalEv = evs.find(x=>x.def.start && x.def.end);
+  if (gcalEv){ gcal.style.display = ""; gcal.href = gcalUrl(gcalEv); }
   else { gcal.style.display = "none"; }
   const page = document.getElementById("mPage");
-  if (def.page){ page.style.display = ""; page.href = def.page; }
+  const pageEv = evs.find(x=>x.def.page);
+  if (pageEv){ page.style.display = ""; page.href = pageEv.def.page; }
   else { page.style.display = "none"; }
-  document.getElementById("mIcs").style.display = (region === "danang") ? "" : "none";
+  document.getElementById("mIcs").style.display = activeRegions.includes("danang") ? "" : "none";
   document.getElementById("modal").classList.add("on");
 }
 document.getElementById("mClose").addEventListener("click", ()=>document.getElementById("modal").classList.remove("on"));
@@ -804,21 +866,30 @@ document.getElementById("modal").addEventListener("click", e=>{ if (e.target.id=
 document.getElementById("calPrev").addEventListener("click", ()=>{ view.setMonth(view.getMonth()-1); render(); });
 document.getElementById("calNext").addEventListener("click", ()=>{ view.setMonth(view.getMonth()+1); render(); });
 
+function syncTabs(){
+  document.querySelectorAll("#regionTabs button[data-region]").forEach(x=>x.classList.toggle("active", activeRegions.includes(x.dataset.region)));
+  const all = document.getElementById("tabAll");
+  if (all) all.classList.toggle("active", activeRegions.length === Object.keys(REGIONS).length);
+}
 document.querySelectorAll("#regionTabs button").forEach(b=>{
   b.addEventListener("click", ()=>{
-    region = b.dataset.region;
-    document.querySelectorAll("#regionTabs button").forEach(x=>x.classList.toggle("active", x===b));
-    render();
+    if (b.id === "tabAll"){
+      activeRegions = (activeRegions.length === Object.keys(REGIONS).length) ? ["danang"] : ["danang","saigon","hanoi"];
+    } else {
+      const r = b.dataset.region;
+      activeRegions = activeRegions.includes(r) ? activeRegions.filter(x=>x!==r) : activeRegions.concat(r);
+      if (activeRegions.length === 0) activeRegions = ["danang"];  // never show an empty calendar
+    }
+    syncTabs(); render();
   });
 });
+syncTabs();
 
-/* deep-link: open a city directly, e.g. index.html#hanoi */
+/* deep-link: open cities directly, e.g. index.html#hanoi or #danang,saigon */
 (function(){
-  const hr = (location.hash || "").replace("#", "");
-  if (REGIONS[hr]){
-    region = hr;
-    document.querySelectorAll("#regionTabs button").forEach(x=>x.classList.toggle("active", x.dataset.region===hr));
-  }
+  const hr = decodeURIComponent((location.hash || "").replace("#", ""));
+  const picks = hr.split(",").filter(r=>REGIONS[r]);
+  if (picks.length){ activeRegions = picks; syncTabs(); }
 })();
 
 /* playlist button */
