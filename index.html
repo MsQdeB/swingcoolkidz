@@ -215,7 +215,9 @@
   .chip.hyatt{background:var(--pink)}
   .chip.saigon{background:var(--blue)}
   .chip.hanoi{background:var(--green)}
-  @media(max-width:520px){.day .labels{display:none}}
+  .day .mdots{display:none;gap:3px;justify-content:center;margin-top:2px}
+  .day .mdots i{width:8px;height:8px;border-radius:50%;display:inline-block;border:1px solid var(--ink)}
+  @media(max-width:520px){.day .labels{display:none}.day .mdots{display:flex}}
 
   /* ---------- NEIGHBOURS ---------- */
   .neigh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
@@ -351,6 +353,7 @@
           <li><span class="ico">📆</span><span>Usually <b>every other Thursday</b></span></li>
           <li><span class="ico">🙌</span><span>All levels, all ages, all smiles</span></li>
           <li><span class="ico">💛</span><span>Entry <b>70k</b> — includes <b>1 drink</b> (Huda or Water)</span></li>
+          <li><span class="ico">📍</span><span><a href="https://maps.app.goo.gl/aUk2g6LRoFLMXJ9Y7" target="_blank" rel="noopener">Blends Social Bar — open in Google Maps →</a></span></li>
         </ul>
         <div class="highlight">🙏 Blends has been generously hosting us and keeps it flexible for our community. Come show some love.</div>
       </article>
@@ -367,7 +370,7 @@
           <li><span class="ico">🍹</span><span><b>No entrance fee</b> — just buy a drink or food from the menu
             (🥤 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_beverage_menu?fr=sZjhhMDgzODQ5MDU" target="_blank" rel="noopener">Drink menu</a> · 🍟 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_snack_menu?fr=xKAE9_zMzMw" target="_blank" rel="noopener">Snack menu</a>)</span></li>
           <li><span class="ico">🗳️</span><span><b>Vote your attendance</b> in our <b>WhatsApp poll</b> so we can reserve a good table — no WhatsApp? DM us on <a href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener">IG</a> or <a href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener">FB</a>.</span></li>
-          <li><span class="ico">📍</span><span>Hyatt Regency Đà Nẵng — Terrasse Bar · <a href="https://maps.app.goo.gl/nhZQV5ik12SCCZPY9" target="_blank" rel="noopener">Map →</a></span></li>
+          <li><span class="ico">📍</span><span><a href="https://maps.app.goo.gl/nhZQV5ik12SCCZPY9" target="_blank" rel="noopener">Terrasse Bar, Hyatt Regency Đà Nẵng — open in Google Maps →</a></span></li>
         </ul>
       </article>
     </div>
@@ -782,7 +785,8 @@ function render(){
     } else if (dayEvs.length > 1){
       el.className = "day has multi";
       el.innerHTML = '<span class="n">'+d+'</span><span class="labels">' +
-        dayEvs.map(e=>'<span class="chip '+e.cls+'">'+e.def.label+'</span>').join("") + '</span>';
+        dayEvs.map(e=>'<span class="chip '+e.cls+'">'+e.def.label+'</span>').join("") + '</span>' +
+        '<span class="mdots">' + dayEvs.map(e=>'<i class="dot-'+e.cls+'"></i>').join("") + '</span>';
     } else {
       el.className = "day";
       el.innerHTML = '<span class="n">'+d+'</span>';
