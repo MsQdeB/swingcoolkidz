@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Swing Cool Kidz//Danang Hoian//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Swing Cool Kidz
+X-WR-CALDESC:Swing dance socials in Da Nang - Blends (Thu) & Hyatt Terrasse (Wed)
+X-WR-TIMEZONE:Asia/Ho_Chi_Minh
+BEGIN:VTIMEZONE
+TZID:Asia/Ho_Chi_Minh
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0700
+TZOFFSETTO:+0700
+TZNAME:+07
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:blends-2th-4th@swingcoolkidz
+DTSTAMP:20260101T000000Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20261008T190000
+DTEND;TZID=Asia/Ho_Chi_Minh:20261008T210000
+RRULE:FREQ=MONTHLY;BYDAY=2TH,4TH
+SUMMARY:Swing Cool Kidz: Social + Taster Class at Blends
+LOCATION:Blends Social Bar\, Da Nang
+DESCRIPTION:45-min taster class starts 7PM\, then social dancing till 9PM. Entry 70k incl. 1 drink (Huda or Water). No partner or experience needed. More: https://swingcoolkidz.netlify.app
+END:VEVENT
+BEGIN:VEVENT
+UID:hyatt-1we-3we@swingcoolkidz
+DTSTAMP:20260101T000000Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20261007T200000
+DTEND;TZID=Asia/Ho_Chi_Minh:20261007T220000
+RRULE:FREQ=MONTHLY;BYDAY=1WE,3WE
+SUMMARY:Swing Cool Kidz: Live Jazz Social at Hyatt Terrasse
+LOCATION:Terrasse Bar\, Hyatt Regency Da Nang
+DESCRIPTION:Live music with the HAT Jazz Band on a wooden floor. 8-10PM. No entrance fee - just buy a drink or food. Please vote your attendance in our WhatsApp poll for table reservation\, or DM us on IG/FB. More: https://swingcoolkidz.netlify.app
+END:VEVENT
+END:VCALENDAR
