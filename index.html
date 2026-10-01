@@ -170,6 +170,7 @@
   .facts li{display:flex;gap:10px;align-items:flex-start;font-weight:400}
   .facts .ico{flex:0 0 24px;text-align:center}
   .facts b{font-weight:600}
+  .card .highlight{background:var(--sun);border:2px solid var(--ink);border-radius:12px;padding:12px 16px;font-weight:600;margin-top:16px}
 
   /* ---------- KNOW ---------- */
   .know{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}
@@ -267,7 +268,6 @@
     </a>
     <nav class="nav">
       <a href="#calendar">Calendar</a>
-      <a href="#schedule">Schedule</a>
       <a href="#venues">Venues &amp; Fees</a>
       <a href="#watch">Watch</a>
       <a href="#neighbours">Neighbours</a>
@@ -333,11 +333,11 @@
     </div>
   </section>
 
-  <!-- SCHEDULE -->
-  <section id="schedule" class="wrap">
+  <!-- VENUES & FEES (lineup + info merged) -->
+  <section id="venues" class="wrap">
     <div class="sec-head">
-      <h2>The Lineup</h2>
-      <p>Two homes, one vibe. Here's how the month swings.</p>
+      <h2>Venues &amp; Fees</h2>
+      <p>Two homes, one vibe — where we dance, what it costs, and how to get there.</p>
     </div>
     <div class="cards">
       <article class="card blends">
@@ -346,10 +346,13 @@
         <div class="venue">Blends Social Bar · our Thursday home 🏠</div>
         <ul class="facts">
           <li><span class="ico">🕖</span><span><b>7:00–9:00PM</b> — taster class starts 7:00</span></li>
-          <li><span class="ico">🦶</span><span><b>45-min taster class</b> first — fresh feet very welcome</span></li>
+          <li><span class="ico">🦶</span><span><b>45-min taster class</b> first — fresh feet very welcome, then social dancing till 9</span></li>
+          <li><span class="ico">🪨</span><span>Floor: <b>concrete</b> — comfy shoes recommended</span></li>
           <li><span class="ico">📆</span><span>Usually <b>every other Thursday</b></span></li>
+          <li><span class="ico">🙌</span><span>All levels, all ages, all smiles</span></li>
+          <li><span class="ico">💛</span><span>Entry <b>70k</b> — includes <b>1 drink</b> (Huda or Water)</span></li>
         </ul>
-        <div class="fee">💛 Entry 70k — includes 1 drink (Huda or Water)</div>
+        <div class="highlight">🙏 Blends has been generously hosting us and keeps it flexible for our community. Come show some love.</div>
       </article>
 
       <article class="card hyatt">
@@ -359,43 +362,14 @@
         <ul class="facts">
           <li><span class="ico">🕗</span><span><b>8:00–10:00PM</b></span></li>
           <li><span class="ico">🎷</span><span>Live music with the <b>HAT Jazz Band</b></span></li>
-          <li><span class="ico">🪵</span><span>Beautiful <b>wooden floor</b> — made for spinning</span></li>
+          <li><span class="ico">🪵</span><span>Floor: <b>wooden floor</b> — made for spinning</span></li>
           <li><span class="ico">📆</span><span>Usually <b>every other Wednesday</b></span></li>
+          <li><span class="ico">🍹</span><span><b>No entrance fee</b> — just buy a drink or food from the menu
+            (🥤 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_beverage_menu?fr=sZjhhMDgzODQ5MDU" target="_blank" rel="noopener">Drink menu</a> · 🍟 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_snack_menu?fr=xKAE9_zMzMw" target="_blank" rel="noopener">Snack menu</a>)</span></li>
+          <li><span class="ico">🗳️</span><span><b>Vote your attendance</b> in our <b>WhatsApp poll</b> so we can reserve a good table — no WhatsApp? DM us on <a href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener">IG</a> or <a href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener">FB</a>.</span></li>
+          <li><span class="ico">📍</span><span>Hyatt Regency Đà Nẵng — Terrasse Bar · <a href="https://maps.app.goo.gl/nhZQV5ik12SCCZPY9" target="_blank" rel="noopener">Map →</a></span></li>
         </ul>
-        <div class="fee">🍹 No entrance fee — just buy a drink or food from the menu</div>
       </article>
-    </div>
-  </section>
-
-  <!-- VENUES / GOOD TO KNOW -->
-  <section id="venues" class="wrap">
-    <div class="sec-head">
-      <h2>Venues &amp; Fees</h2>
-      <p>Everything you need before you lace up your dancing shoes.</p>
-    </div>
-    <div class="know">
-      <div class="panel">
-        <h3>🦶 At Blends</h3>
-        <ul class="facts">
-          <li><span class="ico">🏠</span><span>Our cozy Thursday home in Đà Nẵng</span></li>
-          <li><span class="ico">🎓</span><span><b>45-min taster class</b> to get you moving</span></li>
-          <li><span class="ico">💃</span><span>Then social dancing till 9PM</span></li>
-          <li><span class="ico">👟</span><span>Comfortable shoes recommended</span></li>
-          <li><span class="ico">🙌</span><span>All levels, all ages, all smiles</span></li>
-        </ul>
-        <div class="fee">💛 Entry <b>70k</b>, including <b>1 drink</b> (Huda or Water)</div>
-        <p style="margin-top:18px;color:var(--ink-2)">Blends has been generously <b>hosting us</b> and keeps it flexible for our community. Come show some love. 🙏</p>
-      </div>
-      <div class="panel">
-        <h3>🎷 At Hyatt Terrasse</h3>
-        <ol>
-          <li><b>No entrance fee</b> — please just <b>buy a drink or food</b> from the menu.
-            <br>🥤 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_beverage_menu?fr=sZjhhMDgzODQ5MDU" target="_blank" rel="noopener">Drink menu</a> · 🍟 <a href="https://issuu.com/hyattregencydanangresortandspa/docs/terrasse_snack_menu?fr=xKAE9_zMzMw" target="_blank" rel="noopener">Snack menu</a></li>
-          <li><b>Best to vote your attendance</b> in the <b>poll in our WhatsApp group</b> so we can reserve a good table for us. No WhatsApp? Just DM us on <a href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener">IG</a> or <a href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener">FB</a>.</li>
-          <li>📍 Hyatt Regency Đà Nẵng — Terrasse Bar<br>
-            <a class="map" href="https://maps.app.goo.gl/nhZQV5ik12SCCZPY9" target="_blank" rel="noopener">Open in Google Maps →</a></li>
-        </ol>
-      </div>
     </div>
   </section>
 
