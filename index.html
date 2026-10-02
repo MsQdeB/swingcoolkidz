@@ -3,16 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Swing Cool Kidz · Swing Dance in Đà Nẵng &amp; Hội An</title>
-<meta name="description" content="Swing Cool Kidz — Đà Nẵng & Hội An's swing dance community since 2016. Social dance twice a month at Blends and twice a month at Hyatt Terrasse with live jazz. Lindy Hop, Vernacular Solo Jazz, Balboa, Blues & Shag." />
+<title>Swing Cool Kidz — Swing Dance &amp; Lindy Hop in Đà Nẵng &amp; Hội An, Vietnam</title>
+<meta name="description" content="Swing Cool Kidz is a swing dance community in Đà Nẵng and Hội An, Vietnam. We run Lindy Hop socials at Blends (with a beginner taster class) and live-jazz socials at Hyatt Terrasse. All levels welcome — no partner needed." />
+<link rel="canonical" href="https://swingcoolkidz.netlify.app/" />
+<link rel="alternate" hreflang="en" href="https://swingcoolkidz.netlify.app/" />
+<link rel="alternate" hreflang="vi" href="https://swingcoolkidz.netlify.app/vi" />
+<link rel="alternate" hreflang="x-default" href="https://swingcoolkidz.netlify.app/" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="theme-color" content="#E34A94" />
 
 <!-- Favicon + social preview -->
 <link rel="icon" href="logo.png" />
-<link rel="alternate" hreflang="vi" href="vi.html" />
-<meta property="og:title" content="Swing Cool Kidz · Đà Nẵng & Hội An" />
-<meta property="og:description" content="Swing dance socials twice a month at Blends & twice a month at Hyatt Terrasse with live jazz. Since 2016." />
-<meta property="og:image" content="logo.png" />
+<meta property="og:title" content="Swing Cool Kidz — Swing Dance in Đà Nẵng &amp; Hội An" />
+<meta property="og:description" content="Lindy Hop &amp; live-jazz socials in Đà Nẵng and Hội An, Vietnam. Beginner-friendly, no partner needed." />
+<meta property="og:image" content="https://swingcoolkidz.netlify.app/logo.png" />
+<meta property="og:url" content="https://swingcoolkidz.netlify.app/" />
+<meta property="og:site_name" content="Swing Cool Kidz" />
 <meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="vi_VN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Swing Cool Kidz — Swing Dance in Đà Nẵng &amp; Hội An" />
+<meta name="twitter:description" content="Lindy Hop &amp; live-jazz socials in Đà Nẵng and Hội An, Vietnam." />
+<meta name="twitter:image" content="https://swingcoolkidz.netlify.app/logo.png" />
+<script data-goatcounter="" async src="" hidden></script>
+<!-- Traffic analytics: pick ONE and enable it.
+     A) Zero code: Netlify dashboard -> Site configuration -> Analytics (paid add-on).
+     B) Free & cookieless: create a GoatCounter site, then set the two attributes below and remove the leading _
+        _data-goatcounter="https://swingcoolkidz.goatcounter.com/count" _src="//gc.zgo.at/count.js"
+     C) Free: Cloudflare Web Analytics — paste the beacon script here. -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -303,6 +322,13 @@
   .floor-acc>summary::after{content:"＋"}
   .floor-acc[open]>summary::after{content:"－"}
   .floor-acc .floor-grid{padding-bottom:22px}
+  .faq{display:grid;gap:10px;margin-top:6px}
+  details.faq-i{background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:0 18px;box-shadow:var(--shadow)}
+  details.faq-i>summary{cursor:pointer;padding:14px 0;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px}
+  details.faq-i>summary::-webkit-details-marker{display:none}
+  details.faq-i>summary::after{content:"＋"}
+  details.faq-i[open]>summary::after{content:"－"}
+  details.faq-i p{margin:0 0 16px;color:var(--ink-2);font-weight:300}
   .foot-note{margin-top:26px;font-size:13px;opacity:.7;font-weight:300}
   .copyright{margin-top:10px;font-size:12px;opacity:.65;font-weight:300;letter-spacing:.3px}
 
@@ -313,6 +339,57 @@
   .modal-actions{display:grid;gap:10px;margin-top:18px}
   .modal-actions .btn{justify-content:center;width:100%}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://swingcoolkidz.netlify.app/#org",
+      "name": "Swing Cool Kidz",
+      "url": "https://swingcoolkidz.netlify.app/",
+      "logo": "https://swingcoolkidz.netlify.app/logo.png",
+      "description": "Swing dance community in Đà Nẵng & Hội An, Vietnam — Lindy Hop, Vernacular Solo Jazz, Balboa, Blues and Shag.",
+      "foundingDate": "2016",
+      "areaServed": "Đà Nẵng and Hội An, Vietnam",
+      "sameAs": ["https://www.instagram.com/swingcoolkidz", "https://www.facebook.com/swingcoolkidz"]
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://swingcoolkidz.netlify.app/",
+      "name": "Swing Cool Kidz",
+      "inLanguage": ["en", "vi"]
+    },
+    {
+      "@type": "DanceEvent",
+      "name": "Social + Taster Class at Blends",
+      "description": "Beginner-friendly Lindy Hop social with a 45-minute taster class. Entry 70k including one drink.",
+      "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Thursday", "startTime": "19:00", "endTime": "21:00", "repeatFrequency": "P2W", "scheduleTimezone": "Asia/Ho_Chi_Minh"},
+      "location": {"@type": "Place", "name": "Blends Social Bar", "address": {"@type": "PostalAddress", "addressLocality": "Đà Nẵng", "addressCountry": "VN"}},
+      "organizer": {"@id": "https://swingcoolkidz.netlify.app/#org"},
+      "offers": {"@type": "Offer", "price": "70000", "priceCurrency": "VND"},
+      "isAccessibleForFree": false
+    },
+    {
+      "@type": "DanceEvent",
+      "name": "Live Jazz Social at Hyatt Terrasse",
+      "description": "Swing social with live jazz by the HAT Jazz Band on a wooden floor. No entrance fee — buy a drink or food.",
+      "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Wednesday", "startTime": "20:00", "endTime": "22:00", "repeatFrequency": "P2W", "scheduleTimezone": "Asia/Ho_Chi_Minh"},
+      "location": {"@type": "Place", "name": "Terrasse Bar, Hyatt Regency Đà Nẵng", "address": {"@type": "PostalAddress", "addressLocality": "Đà Nẵng", "addressCountry": "VN"}},
+      "organizer": {"@id": "https://swingcoolkidz.netlify.app/#org"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Where can I dance swing or Lindy Hop in Đà Nẵng, Vietnam?", "acceptedAnswer": {"@type": "Answer", "text": "Swing Cool Kidz hosts swing socials in Đà Nẵng: Lindy Hop at Blends Social Bar (every other Thursday, with a beginner taster class) and live-jazz socials at the Hyatt Regency Đà Nẵng Terrasse Bar (every other Wednesday). We also connect with the scenes in Hà Nội and Sài Gòn."}},
+        {"@type": "Question", "name": "Do I need a partner or experience to join?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everyone is welcome, no partner or experience needed. A 45-minute beginner taster class runs before the Blends social."}},
+        {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "At Blends, entry is 70,000 VND including one drink (Huda or water). At Hyatt Terrasse there is no entrance fee — just buy a drink or food from the menu."}},
+        {"@type": "Question", "name": "When and where are the socials?", "acceptedAnswer": {"@type": "Answer", "text": "Blends every other Thursday, 7–9PM; Hyatt Terrasse every other Wednesday, 8–10PM. They alternate week to week — see the calendar at swingcoolkidz.netlify.app."}}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -330,6 +407,7 @@
         <a href="#watch">Watch</a>
         <a href="#community">Community</a>
         <a href="#floor">Rules</a>
+        <a href="#faq">FAQ</a>
         <a href="#join">Join</a>
       </nav>
       <span class="lang-switch" aria-label="Language"><a href="index.html" class="active">EN</a><a href="vi.html">VI</a></span>
@@ -564,6 +642,21 @@
       <article class="floor-card"><h3>🚨 A safe space</h3><p>Harassment of any kind isn't welcome here. If anything feels uncomfortable — for you or for someone else — tell an organiser. We look after each other.</p></article>
       </div>
     </details>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="wrap">
+    <div class="sec-head">
+      <h2>Good Questions</h2>
+      <p>Quick answers about swing dancing in Đà Nẵng &amp; Hội An.</p>
+    </div>
+    <div class="faq">
+      <details class="faq-i"><summary>Where can I dance swing / Lindy Hop in Đà Nẵng?</summary><p>Swing Cool Kidz runs swing socials in Đà Nẵng: Lindy Hop at <b>Blends Social Bar</b> (every other Thursday, with a beginner taster class) and live-jazz socials at the <b>Hyatt Regency Đà Nẵng — Terrasse Bar</b> (every other Wednesday). We also connect with the scenes in <b>Hà Nội</b> and <b>Sài Gòn</b>.</p></details>
+      <details class="faq-i"><summary>Do I need a partner or any experience?</summary><p>Nope! Everyone is welcome — no partner and no experience needed. A 45-minute taster class runs before the Blends social to get you started.</p></details>
+      <details class="faq-i"><summary>How much does it cost?</summary><p>At Blends, entry is <b>70k</b> including one drink (Huda or water). At Hyatt Terrasse there's <b>no entrance fee</b> — just buy a drink or food from the menu.</p></details>
+      <details class="faq-i"><summary>When &amp; where are the socials?</summary><p>Blends: every other <b>Thursday, 7–9PM</b>. Hyatt Terrasse: every other <b>Wednesday, 8–10PM</b>. They alternate week to week — see the <a href="#calendar">calendar</a> for exact dates.</p></details>
+      <details class="faq-i"><summary>Can I bring a friend who doesn't dance?</summary><p>Absolutely — friends are welcome to hang out. At Blends they pay the same entry (70k incl. a drink); at Hyatt the bar is open to outside guests, just buy from the menu.</p></details>
+    </div>
   </section>
 
 </main>
