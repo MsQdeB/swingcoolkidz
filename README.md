@@ -50,6 +50,16 @@ Submit the site to Google Search Console and Bing Webmaster Tools:
 - `robots.txt` explicitly allows GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot, etc.
 - FAQ + structured data give assistants clean, quotable answers.
 
+## Getting indexed (do this once)
+1. **Google Search Console** → add property `https://swingcoolkidz.netlify.app` → verify
+   (paste the `google-site-verification` meta into the `<head>` of both pages, or verify by DNS).
+2. **Sitemaps** → submit `https://swingcoolkidz.netlify.app/sitemap.xml`.
+3. **Bing Webmaster Tools** → same site + sitemap (`msvalidate.01` meta for verification).
+4. Ask Google to **inspect the URL** once, so it crawls sooner.
+
+Indexing usually takes a few days to a couple of weeks. `robots.txt` already allows
+normal and AI crawlers, and the canonical/hreflang/sitemap setup is complete.
+
 ## Traffic analytics (pick ONE, then enable)
 The snippet placeholder is commented in the `<head>` of both pages.
 

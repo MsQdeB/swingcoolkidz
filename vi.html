@@ -9,14 +9,22 @@
 <link rel="alternate" hreflang="en" href="https://swingcoolkidz.netlify.app/" />
 <link rel="alternate" hreflang="vi" href="https://swingcoolkidz.netlify.app/vi" />
 <link rel="alternate" hreflang="x-default" href="https://swingcoolkidz.netlify.app/" />
-<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 <meta name="theme-color" content="#E34A94" />
+<meta name="geo.region" content="VN-DN" />
+<meta name="geo.placename" content="Đà Nẵng, Vietnam" />
+<!-- Claim the site to get indexed faster:
+     <meta name="google-site-verification" content="..." />
+     <meta name="msvalidate.01" content="..." />  (Bing) -->
 
 <!-- Favicon + social preview -->
 <link rel="icon" href="logo.png" />
 <meta property="og:title" content="Swing Cool Kidz — Nhảy Swing tại Đà Nẵng &amp; Hội An" />
 <meta property="og:description" content="Social Lindy Hop &amp; nhạc jazz sống tại Đà Nẵng và Hội An, Việt Nam. Thân thiện với người mới, không cần bạn nhảy." />
 <meta property="og:image" content="https://swingcoolkidz.netlify.app/logo.png" />
+<meta property="og:image:width" content="3000" />
+<meta property="og:image:height" content="3000" />
+<meta property="og:image:alt" content="Swing Cool Kidz — nhảy swing tại Đà Nẵng &amp; Hội An, Việt Nam" />
 <meta property="og:url" content="https://swingcoolkidz.netlify.app/vi" />
 <meta property="og:site_name" content="Swing Cool Kidz" />
 <meta property="og:type" content="website" />
@@ -26,6 +34,7 @@
 <meta name="twitter:title" content="Swing Cool Kidz — Nhảy Swing tại Đà Nẵng &amp; Hội An" />
 <meta name="twitter:description" content="Social Lindy Hop &amp; nhạc jazz sống tại Đà Nẵng và Hội An, Việt Nam." />
 <meta name="twitter:image" content="https://swingcoolkidz.netlify.app/logo.png" />
+<meta name="twitter:image:alt" content="Swing Cool Kidz — nhảy swing tại Đà Nẵng &amp; Hội An, Việt Nam" />
 <!-- Traffic analytics: pick ONE and enable it.
      A) Zero code: Netlify dashboard -> Site configuration -> Analytics (paid add-on).
      B) Free & cookieless: create a GoatCounter site, then set the two attributes below and remove the leading _
@@ -48,6 +57,7 @@
     --sun-deep:#E3C246;
     --blue:#2E6FDB;
     --green:#1F9D6B;
+    --violet:#7C4DBC;
     --line:#17171722;
     --shadow:0 16px 40px -18px rgba(23,23,23,.4);
     --radius:20px;
@@ -194,12 +204,13 @@
   @media(max-width:520px){.day .lbl{display:none}}
 
   /* ---------- CARDS ---------- */
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
   @media(max-width:800px){.cards{grid-template-columns:1fr}}
   .card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
   .card::before{content:"";position:absolute;inset:0 0 auto 0;height:8px}
   .card.blends::before{background:var(--sun-deep)}
   .card.hyatt::before{background:var(--pink)}
+  .card.hoian::before{background:var(--violet)}
   .card h3{font-size:27px;margin:.35em 0 .1em}
   .card .venue{font-weight:600;color:var(--ink-2);margin-bottom:14px}
   .pill{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;background:var(--ink);color:var(--cream);padding:5px 12px;border-radius:999px}
@@ -261,8 +272,10 @@
   .region-tabs .rt-logo{width:26px;height:26px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);background:#fff;flex:0 0 26px}
   .dot-saigon{background:var(--blue)}
   .dot-hanoi{background:var(--green)}
+  .dot-hoian{background:var(--violet)}
   .day.saigon{background:var(--blue);color:#fff}
   .day.hanoi{background:var(--green);color:#fff}
+  .day.hoian{background:var(--violet);color:#fff}
   .day.multi{background:#fff;color:var(--ink);gap:2px;padding:4px}
   .day .labels{display:flex;flex-wrap:wrap;gap:2px;justify-content:center}
   .day .chip{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.2px;padding:1px 5px;border-radius:6px;color:#fff;line-height:1.5}
@@ -270,6 +283,7 @@
   .chip.hyatt{background:var(--pink)}
   .chip.saigon{background:var(--blue)}
   .chip.hanoi{background:var(--green)}
+  .chip.hoian{background:var(--violet)}
   .day .mdots{display:none;gap:3px;justify-content:center;margin-top:2px}
   .day .mdots i{width:8px;height:8px;border-radius:50%;display:inline-block;border:1px solid var(--ink)}
   @media(max-width:520px){.day .labels{display:none}.day .mdots{display:flex}}
@@ -378,12 +392,22 @@
       "organizer": {"@id": "https://swingcoolkidz.netlify.app/#org"}
     },
     {
+      "@type": "DanceEvent",
+      "name": "Hội An Lindy Hop Social tại Halcyon Beach Bar",
+      "description": "Social Thứ 3 cách tuần tại Hội An, kèm lớp taster cho người mới và nhảy đến 23:00. Miễn phí vào cửa — vui lòng gọi đồ uống ủng hộ quán.",
+      "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Tuesday", "startTime": "20:00", "endTime": "23:00", "repeatFrequency": "P2W", "scheduleTimezone": "Asia/Ho_Chi_Minh"},
+      "location": {"@type": "Place", "name": "Halcyon Beach Bar, An Bàng, Hội An", "address": {"@type": "PostalAddress", "addressLocality": "Hội An", "addressCountry": "VN"}},
+      "organizer": {"@id": "https://swingcoolkidz.netlify.app/#org"},
+      "isAccessibleForFree": true
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Nhảy swing / Lindy Hop ở Đà Nẵng ở đâu?", "acceptedAnswer": {"@type": "Answer", "text": "Swing Cool Kidz tổ chức social swing ở Đà Nẵng: Lindy Hop tại Blends Social Bar (cách tuần một lần, Thứ 5, kèm lớp taster cho người mới) và social nhạc jazz sống tại Terrasse Bar, Hyatt Regency Đà Nẵng (cách tuần một lần, Thứ 4). Tụi mình cũng kết nối với cộng đồng ở Hà Nội và Sài Gòn."}},
+        {"@type": "Question", "name": "Nhảy swing / Lindy Hop ở Đà Nẵng ở đâu?", "acceptedAnswer": {"@type": "Answer", "text": "Swing Cool Kidz tổ chức social swing ở Đà Nẵng: Lindy Hop tại Blends Social Bar (cách tuần một lần, Thứ 5, kèm lớp taster cho người mới) và social nhạc jazz sống tại Terrasse Bar, Hyatt Regency Đà Nẵng (cách tuần một lần, Thứ 4). Tụi mình cũng kết nối với cộng đồng ở Hà Nội và Sài Gòn. Mới ở Hội An: social Thứ 3 cách tuần tại Halcyon Beach Bar, An Bàng (miễn phí)."}},
         {"@type": "Question", "name": "Không có bạn nhảy hoặc chưa biết nhảy thì sao?", "acceptedAnswer": {"@type": "Answer", "text": "Không sao cả! Ai cũng được chào đón — không cần bạn nhảy hay kinh nghiệm. Lớp taster 45 phút diễn ra trước buổi social ở Blends."}},
         {"@type": "Question", "name": "Chi phí thế nào?", "acceptedAnswer": {"@type": "Answer", "text": "Ở Blends, vé vào là 70.000đ kèm 1 đồ uống (Huda hoặc nước). Ở Hyatt Terrasse miễn phí vào cửa — chỉ cần gọi đồ uống hoặc đồ ăn."}},
-        {"@type": "Question", "name": "Social diễn ra khi nào, ở đâu?", "acceptedAnswer": {"@type": "Answer", "text": "Blends cách tuần một lần, Thứ 5, 19:00–21:00; Hyatt Terrasse cách tuần một lần, Thứ 4, 20:00–22:00. Hai chỗ xen kẽ theo tuần — xem lịch tại swingcoolkidz.netlify.app."}}
+        {"@type": "Question", "name": "Social diễn ra khi nào, ở đâu?", "acceptedAnswer": {"@type": "Answer", "text": "Blends cách tuần một lần, Thứ 5, 19:00–21:00; Hyatt Terrasse cách tuần một lần, Thứ 4, 20:00–22:00. Hai chỗ xen kẽ theo tuần — xem lịch tại swingcoolkidz.netlify.app."}},
+        {"@type": "Question", "name": "Hội An có nhảy swing không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Hội An Lindy Hop Social diễn ra tại Halcyon Beach Bar, An Bàng, Thứ 3 cách tuần từ 20:00. Lớp taster cho người mới 20:00–20:45, sau đó nhảy đến 23:00. Miễn phí vào cửa — vui lòng gọi đồ uống ủng hộ quán."}}
       ]
     }
   ]
@@ -395,7 +419,7 @@
 <header class="site">
   <div class="wrap bar" id="topbar">
     <a class="brand" href="#top">
-      <img src="logo.png" alt="Swing Cool Kidz logo" />
+      <img src="logo.png" alt="Swing Cool Kidz logo" width="46" height="46" decoding="async" />
       <span><b>Swing Cool Kidz</b><small>Đà Nẵng — Hội An · Từ 2016</small></span>
     </a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navCollapse">☰</button>
@@ -410,7 +434,7 @@
         <a href="#join">Tham gia</a>
       </nav>
       <span class="lang-switch" aria-label="Language"><a href="index.html">EN</a><a href="vi.html" class="active">VI</a></span>
-      <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">Tham gia WhatsApp</a>
+      <a class="btn wa" style="padding:9px 16px" href="https://chat.whatsapp.com/IzGQVLLIxms76B8NDneTYs" target="_blank" rel="noopener">Tham gia WhatsApp</a>
     </div>
   </div>
 </header>
@@ -423,14 +447,14 @@
       <div>
         <span class="kicker">Lindy Hop · Vernacular Solo Jazz · Balboa · Blues · Shag</span>
         <h1><span class="swing">Swing</span> <span class="cool">Cool</span> <span class="kidz">Kidz</span></h1>
-        <p class="lede">Tụi mình là cộng đồng swing dance của <b>Đà Nẵng &amp; Hội An</b>. Mỗi tháng hai lần swing out hết mình ở <b>Blends</b> — kèm lớp taster 45 phút cho người mới — và hai lần swing out theo <b>nhạc jazz sống tại Hyatt Terrasse</b>. Không cần bạn nhảy, không cần kinh nghiệm, cứ đến là vui!</p>
+        <p class="lede">Tụi mình là cộng đồng swing dance của <b>Đà Nẵng &amp; Hội An</b>. Mỗi tháng hai lần swing out hết mình ở <b>Blends</b> — kèm lớp taster 45 phút cho người mới — và hai lần swing out theo <b>nhạc jazz sống tại Hyatt Terrasse</b>. Mới toanh: <b>social Thứ 3 hằng hai tuần tại Halcyon Beach Bar, Hội An</b>. Không cần bạn nhảy, không cần kinh nghiệm, cứ đến là vui!</p>
         <a class="hero-next" id="heroNext" href="#calendar" style="display:none"></a>
         <div class="cta">
           <a class="btn primary" href="#calendar">🗓️ Xem tháng này</a>
-          <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Tham gia nhóm</a>
+          <a class="btn wa" href="https://chat.whatsapp.com/IzGQVLLIxms76B8NDneTYs" target="_blank" rel="noopener">💬 Tham gia nhóm</a>
         </div>
       </div>
-      <img class="logo-hero" src="logo.png" alt="Swing Cool Kidz — Danang - Hoian" />
+      <img class="logo-hero" src="logo.png" alt="Swing Cool Kidz — cộng đồng nhảy swing ở Đà Nẵng &amp; Hội An, Việt Nam" width="360" height="360" fetchpriority="high" />
     </div>
   </section>
 
@@ -442,11 +466,11 @@
   <section id="calendar" class="wrap">
     <div class="sec-head">
       <h2>Lịch tháng này</h2>
-      <p>Các bạn chạm vào từng ngày để xem thông tin chi tiết. Muốn xem cả "hàng xóm" ở Việt Nam? Chọn các thành phố khác.<br>📍 Đà Nẵng thân iu được mặc định sẵn</p>
+      <p>Các bạn chạm vào từng ngày để xem thông tin chi tiết. Muốn xem cả "hàng xóm" ở Việt Nam? Chọn các thành phố khác.<br>📍 Đà Nẵng – Hội An thân iu được mặc định sẵn</p>
     </div>
 
     <div class="region-tabs" id="regionTabs" role="group" aria-label="Choose which city calendars to show">
-      <button data-region="danang" class="active"><img class="rt-logo" src="logo.png" alt="">Đà Nẵng</button>
+      <button data-region="danang" class="active"><img class="rt-logo" src="logo.png" alt="">Đà Nẵng – Hội An</button>
       <button data-region="saigon"><img class="rt-logo" src="assets/saigon.jpg" alt="">Sài Gòn</button>
       <button data-region="hanoi"><img class="rt-logo" src="assets/hanoi.jpg" alt="">Hà Nội</button>
       <button id="tabAll" class="all">✨ Hiện tất cả</button>
@@ -473,7 +497,7 @@
   <section id="venues" class="wrap">
     <div class="sec-head">
       <h2>Địa điểm &amp; Phí</h2>
-      <p>Hai ngôi nhà, một tinh thần — nhảy ở đâu, tốn bao nhiêu, và đi thế nào.</p>
+      <p>Những ngôi nhà của tụi mình — nhảy ở đâu, tốn bao nhiêu, và đi thế nào.</p>
     </div>
     <div class="cards">
       <article class="card blends">
@@ -508,6 +532,21 @@
           <li><span class="ico">👋</span><span>Bạn bè đến cùng cũng okie — quầy bar mở cho khách ngoài, chỉ cần gọi món. Nếu muốn ngồi chung bàn với Cool Kidz thì báo trong poll.</span></li>
           <li><span class="ico">👟</span><span>Giày: <b>giày thể thao (sneakers) đều ổn</b> — vui lòng không mang giày cao gót hay dép xỏ ngón</span></li>
         </ul>
+      </article>
+
+      <article class="card hoian">
+        <span class="pill" style="background:var(--violet);color:#fff">Thứ 3 · 2 lần / tháng</span>
+        <h3>Social tại Halcyon</h3>
+        <div class="venue"><a href="https://maps.app.goo.gl/rQyyRm4iZucuWsvU9" target="_blank" rel="noopener">Halcyon Beach Bar</a> · An Bàng, Hội An 🌴</div>
+        <ul class="facts">
+          <li><span class="ico">🕗</span><span><b>20:00–23:00</b> — lớp taster bắt đầu lúc 20:00</span></li>
+          <li><span class="ico">🦶</span><span><b>Lớp taster 45 phút</b> mở màn, sau đó nhảy social đến 23:00</span></li>
+          <li><span class="ico">🎟️</span><span><b>Miễn phí vào cửa</b> — vui lòng gọi đồ uống để ủng hộ quán</span></li>
+          <li><span class="ico">📆</span><span><b>Thứ 3</b> cách tuần — <b>mới!</b></span></li>
+          <li><span class="ico">👋</span><span>Bạn bè &amp; người không nhảy đều được chào đón</span></li>
+          <li><span class="ico">👟</span><span>Giày: <b>giày thể thao (sneakers) đều ổn</b> — vui lòng không mang giày cao gót hay dép xỏ ngón</span></li>
+        </ul>
+        <div class="highlight">🆕 Social Hội An vừa mới bắt đầu — cùng ghé ủng hộ Halcyon nha.</div>
       </article>
     </div>
   </section>
@@ -587,13 +626,13 @@
     <h3 class="subhead">🗓️ Social hằng tuần</h3>
     <div class="neigh-grid">
       <article class="neigh-card">
-        <img class="neigh-logo" src="assets/saigon.jpg" alt="Saigon Swing Cats logo">
+        <img class="neigh-logo" src="assets/saigon.jpg" alt="Saigon Swing Cats logo" width="58" height="58" loading="lazy" decoding="async">
         <h3>🌆 Saigon Swing Cats</h3>
         <p>Nhóm swing của TP. Hồ Chí Minh — nhảy social <b>mỗi Thứ 4</b>. Xem trang của họ để biết địa điểm.</p>
         <div class="ico-row"><a class="ico-btn sm" href="https://www.facebook.com/saigonswingcats" target="_blank" rel="noopener" aria-label="Facebook" title="Saigon Swing Cats on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a><a class="ico-btn sm" href="https://www.instagram.com/saigonswingcats" target="_blank" rel="noopener" aria-label="Instagram" title="Saigon Swing Cats on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
       </article>
       <article class="neigh-card">
-        <img class="neigh-logo" src="assets/hanoi.jpg" alt="Hanoi Swing Dance logo">
+        <img class="neigh-logo" src="assets/hanoi.jpg" alt="Hanoi Swing Dance logo" width="58" height="58" loading="lazy" decoding="async">
         <h3>🏯 Swing Dancing Hanoi</h3>
         <p>Cộng đồng swing Hà Nội — nhảy social <b>mỗi Thứ 4</b>. Xem trang của họ để biết địa điểm.</p>
         <div class="ico-row"><a class="ico-btn sm" href="https://www.facebook.com/hanoiswingdance" target="_blank" rel="noopener" aria-label="Facebook" title="Swing Dancing Hanoi on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a><a class="ico-btn sm" href="https://www.instagram.com/hanoiswingdance" target="_blank" rel="noopener" aria-label="Instagram" title="Swing Dancing Hanoi on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a></div>
@@ -650,10 +689,11 @@
       <p>Vài câu hỏi thường gặp về nhảy swing ở Đà Nẵng &amp; Hội An.</p>
     </div>
     <div class="faq">
-      <details class="faq-i"><summary>Nhảy swing / Lindy Hop ở Đà Nẵng ở đâu?</summary><p>Swing Cool Kidz tổ chức social swing ở Đà Nẵng: Lindy Hop tại <b>Blends Social Bar</b> (cách tuần một lần, Thứ 5, kèm lớp taster cho người mới) và social nhạc jazz sống tại <b>Terrasse Bar, Hyatt Regency Đà Nẵng</b> (cách tuần một lần, Thứ 4). Tụi mình cũng kết nối với cộng đồng ở <b>Hà Nội</b> và <b>Sài Gòn</b>.</p></details>
+      <details class="faq-i"><summary>Nhảy swing / Lindy Hop ở Đà Nẵng ở đâu?</summary><p>Swing Cool Kidz tổ chức social swing ở Đà Nẵng: Lindy Hop tại <b>Blends Social Bar</b> (cách tuần một lần, Thứ 5, kèm lớp taster cho người mới) và social nhạc jazz sống tại <b>Terrasse Bar, Hyatt Regency Đà Nẵng</b> (cách tuần một lần, Thứ 4). Và <b>mới ở Hội An</b>: social Thứ 3 cách tuần tại <b>Halcyon Beach Bar, An Bàng</b>. Tụi mình cũng kết nối với cộng đồng ở <b>Hà Nội</b> và <b>Sài Gòn</b>.</p></details>
       <details class="faq-i"><summary>Không có bạn nhảy hoặc chưa biết nhảy thì sao?</summary><p>Không sao cả! Ai cũng được chào đón — không cần bạn nhảy hay kinh nghiệm. Lớp taster 45 phút diễn ra trước buổi social ở Blends để bạn bắt đầu.</p></details>
       <details class="faq-i"><summary>Chi phí thế nào?</summary><p>Ở Blends, vé vào là <b>70k</b> kèm 1 đồ uống (Huda hoặc nước). Ở Hyatt Terrasse <b>miễn phí vào cửa</b> — chỉ cần gọi đồ uống hoặc đồ ăn.</p></details>
       <details class="faq-i"><summary>Social diễn ra khi nào, ở đâu?</summary><p>Blends: cách tuần một lần, <b>Thứ 5, 19:00–21:00</b>. Hyatt Terrasse: cách tuần một lần, <b>Thứ 4, 20:00–22:00</b>. Hai chỗ xen kẽ theo tuần — xem <a href="#calendar">lịch</a> để biết ngày chính xác.</p></details>
+      <details class="faq-i"><summary>Hội An có nhảy swing không?</summary><p>Có nha! <b>Hội An Lindy Hop Social</b> diễn ra tại <b>Halcyon Beach Bar, An Bàng</b>, <b>Thứ 3 cách tuần, 20:00–23:00</b>. Lớp taster cho người mới 20:00–20:45, sau đó nhảy đến 23:00. <b>Miễn phí vào cửa</b> — vui lòng gọi đồ uống ủng hộ quán.</p></details>
       <details class="faq-i"><summary>Có thể dẫn bạn không nhảy theo không?</summary><p>Hoàn toàn được — bạn bè cứ đến chơi. Ở Blends trả cùng mức vé (70k kèm 1 đồ uống); ở Hyatt quầy bar mở cho khách ngoài, chỉ cần gọi món.</p></details>
     </div>
   </section>
@@ -668,14 +708,14 @@
         <div style="opacity:.85;font-weight:300">Lindy Hop · Vernacular Solo Jazz · Balboa · Blues · Shag · Đà Nẵng — Hội An</div>
       </div>
       <div class="foot-cta">
-        <a class="btn wa" href="https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t" target="_blank" rel="noopener">💬 Tham gia nhóm WhatsApp</a>
+        <a class="btn wa" href="https://chat.whatsapp.com/IzGQVLLIxms76B8NDneTYs" target="_blank" rel="noopener">💬 Tham gia nhóm (Đà Nẵng &amp; Hội An)</a>
         <div class="socials">
           <a class="ico-btn" href="https://www.instagram.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
           <a class="ico-btn" href="https://www.facebook.com/swingcoolkidz" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.47-.1-2.44 0-4.1 1.49-4.1 4.22V9.9H7.4V13h2.62v8h3.48z"/></svg></a>
         </div>
       </div>
     </div>
-    <p class="foot-note">Có câu hỏi hay góp ý? Nhắn tụi mình qua WhatsApp / Instagram / Facebook — hoặc ghé chào một buổi social. 💃🕺<br>Hẹn gặp trên sàn nhảy. 🎶 — và cảm ơn Blends &amp; Hyatt Terrasse đã yêu thương Cool Kidz và giúp phát triển cộng đồng nhảy Swing.</p>
+    <p class="foot-note">Có câu hỏi hay góp ý? Nhắn tụi mình qua WhatsApp / Instagram / Facebook — hoặc ghé chào một buổi social. 💃🕺<br>Hẹn gặp trên sàn nhảy. 🎶 — và cảm ơn Blends, Hyatt Terrasse &amp; Halcyon đã yêu thương Cool Kidz và giúp phát triển cộng đồng nhảy Swing.</p>
     <p class="copyright">© <span id="year">2026</span> Swing Cool Kidz. Bảo lưu mọi quyền.</p>
   </div>
 </footer>
@@ -698,7 +738,7 @@
 /* =====================================================================
    WHATSAPP INVITE (already set)
    ===================================================================== */
-const WHATSAPP_INVITE = "https://chat.whatsapp.com/LC0M3Pv0NxVC2zDj9pEPtz?mode=gi_t";
+const WHATSAPP_INVITE = "https://chat.whatsapp.com/IzGQVLLIxms76B8NDneTYs";
 
 /* ▼ EDIT ME: paste our YouTube playlist link here, e.g.
    "https://www.youtube.com/playlist?list=PLxxxxxxxx" */
@@ -711,7 +751,7 @@ const PLAYLIST_URL = "https://www.youtube.com/watch?v=pvkbPLTCWHQ&list=PLYK7zEX4
 --------------------------------------------------------------------- */
 const EVENTS = {
   blends: {
-    label: "Blends",
+    label: "Blends (ĐN)",
     title: "Social + Lớp taster tại Blends",
     gcalTitle: "Swing Cool Kidz: Social + Lớp taster tại Blends",
     dayOffset: 3,        // Thursday (weeks are anchored on a Monday)
@@ -729,7 +769,7 @@ const EVENTS = {
     ]
   },
   hyatt: {
-    label: "Hyatt",
+    label: "Hyatt (ĐN)",
     title: "Live Jazz tại Hyatt Terrasse",
     gcalTitle: "Swing Cool Kidz: Live Jazz tại Hyatt Terrasse",
     dayOffset: 2,        // Wednesday (weeks are anchored on a Monday)
@@ -744,6 +784,26 @@ const EVENTS = {
       "🍹 Miễn phí vào cửa — chỉ cần gọi đồ uống hoặc đồ ăn",
       "🗳️ Vote tham dự trong poll WhatsApp để giữ bàn (hoặc DM qua IG/FB)",
       "📍 Hyatt Regency Đà Nẵng — Terrasse Bar"
+    ]
+  },
+
+  /* Hội An — social Thứ 3 cách tuần tại Halcyon Beach Bar (hiển thị trong tab Đà Nẵng–Hội An) */
+  hoian: {
+    label: "Halcyon (HA)",
+    title: "Social Lindy Hop Hội An — Halcyon Beach Bar",
+    gcalTitle: "Swing Cool Kidz: Social Lindy Hop tại Halcyon, Hội An",
+    start: [20, 0],
+    end:   [23, 0],
+    time: "20:00–23:00 (lớp taster 20:00–20:45)",
+    location: "Halcyon Beach Bar, An Bàng, Hội An",
+    details: "Lớp taster cho người mới 20:00–20:45, sau đó nhảy social đến 23:00. Miễn phí vào cửa — vui lòng gọi đồ uống để ủng hộ quán. Không cần bạn nhảy hay kinh nghiệm.",
+    facts: [
+      "🆕 Mới — social Hội An vừa mới bắt đầu",
+      "🕗 Lớp taster 20:00–20:45 cho người mới",
+      "💃 Nhảy social 20:45–23:00",
+      "🎟️ Miễn phí — vui lòng gọi đồ uống ủng hộ quán",
+      "📍 Halcyon Beach Bar, An Bàng, Hội An",
+      "🙌 Không cần bạn nhảy hay kinh nghiệm"
     ]
   },
 
@@ -814,23 +874,28 @@ function eventsForMonth(year, month){
     }
     wk = new Date(wk); wk.setDate(wk.getDate() + 7);
   }
+  // Hội An — Thứ 3 cách tuần tại Halcyon, bắt đầu 17/11/2026 đến hết 2026
+  for (let ha = new Date(2026,10,17); ha <= SCHEDULE_UNTIL; ha.setDate(ha.getDate() + 14)){
+    if (ha.getFullYear() === year && ha.getMonth() === month)
+      out.push({ date: new Date(ha), key: "hoian", def: EVENTS.hoian });
+  }
   return out.sort((a,b)=>a.date-b.date);
 }
 
 /* ---- City selection (multi-select) ---- */
-const REGIONS = { danang:{name:"Đà Nẵng"}, saigon:{name:"Sài Gòn"}, hanoi:{name:"Hà Nội"} };
+const REGIONS = { danang:{name:"Đà Nẵng – Hội An"}, saigon:{name:"Sài Gòn"}, hanoi:{name:"Hà Nội"} };
 let activeRegions = ["danang"];   // Đà Nẵng is on by default
 
 function legendFor(){
   const items = [];
-  if (activeRegions.includes("danang")){ items.push({cls:"blends", label:"Blends · Social + Lớp taster"}); items.push({cls:"hyatt", label:"Hyatt Terrasse · Live Jazz"}); }
+  if (activeRegions.includes("danang")){ items.push({cls:"blends", label:"Blends · Social + Lớp taster"}); items.push({cls:"hyatt", label:"Hyatt Terrasse · Live Jazz"}); items.push({cls:"hoian", label:"Halcyon · Hội An (mới)"}); }
   if (activeRegions.includes("saigon")) items.push({cls:"saigon", label:"Saigon Swing Cats · Thứ 4"});
   if (activeRegions.includes("hanoi")) items.push({cls:"hanoi", label:"Swing Dancing Hanoi · Thứ 4"});
   return items.map(l=>'<span><i class="dot-'+l.cls+'"></i>'+l.label+'</span>').join("");
 }
 function footFor(){
   const parts = [];
-  if (activeRegions.includes("danang")) parts.push("<b>Đà Nẵng:</b> cách tuần một lần — <b>Blends</b> Thứ 5 19:00–21:00 (lớp taster trước) &amp; <b>Hyatt</b> Thứ 4 20:00–22:00.");
+  if (activeRegions.includes("danang")){ parts.push("<b>Đà Nẵng:</b> cách tuần một lần — <b>Blends</b> Thứ 5 19:00–21:00 (lớp taster trước) &amp; <b>Hyatt</b> Thứ 4 20:00–22:00."); parts.push("<b>Hội An (mới):</b> <b>Halcyon</b> Beach Bar, Thứ 3 cách tuần 20:00–23:00 — miễn phí, chỉ cần gọi đồ uống."); }
   if (activeRegions.includes("saigon")) parts.push("<b>Sài Gòn:</b> Saigon Swing Cats nhảy mỗi Thứ 4.");
   if (activeRegions.includes("hanoi")) parts.push("<b>Hà Nội:</b> Swing Dancing Hanoi nhảy mỗi Thứ 4. (Sự kiện lớn nằm ở mục Cộng đồng nha!)");
   parts.push("<em>Lịch có thể thay đổi — kiểm tra trang tương ứng / WhatsApp.</em>");
